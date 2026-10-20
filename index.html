@@ -230,22 +230,37 @@ async function fetchWithTimeout(url, ms, opts){
   finally{ clearTimeout(t); }
 }
 
+/* 读取文本时把整个请求+读正文都包在超时里，避免代理返回响应头后卡住正文导致永久挂起 */
+async function fetchTextWithTimeout(url, ms){
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), ms || 7000);
+  try{
+    const r = await fetch(url, {signal: ctl.signal});
+    if(!r.ok) return null;
+    return await r.text();
+  }catch(e){ return null; }
+  finally{ clearTimeout(t); }
+}
+
+/* 给任意 Promise 加总时限，超时返回兜底值，保证流程永远能往下走 */
+function withTimeout(promise, ms, fallback){
+  let done = false;
+  return Promise.race([
+    Promise.resolve(promise).catch(() => fallback),
+    new Promise(res => setTimeout(() => { if(!done) res(fallback); }, ms)),
+  ]).finally(() => { done = true; });
+}
+
 const PROXIES = [
   u => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u),
   u => "https://corsproxy.io/?url=" + encodeURIComponent(u),
   u => "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(u),
-  u => "https://r.jina.ai/" + u,
 ];
 
 async function fetchViaProxies(url, ms){
   for(const make of PROXIES){
-    const r = await fetchWithTimeout(make(url), ms || 9000);
-    if(r){
-      try{
-        const t = await r.text();
-        if(t && t.length > 200) return t;
-      }catch(e){}
-    }
+    const txt = await fetchTextWithTimeout(make(url), ms || 7000);
+    if(txt && txt.length > 200) return txt;
   }
   return null;
 }
@@ -372,7 +387,7 @@ async function liveDiscover(p, excludeNames, maxN, weekend){
   if(district) excluded.add(district);
   const cand = new Map(), hrefs = [];
   for(const q of queries.slice(0, 4)){
-    for(const r of await webSearchMulti(q, 5)){
+    for(const r of await withTimeout(webSearchMulti(q, 5), 7000, [])){
       if(r.href) hrefs.push(r.href);
       for(const n of extractNames((r.title || "") + " " + (r.body || ""))){
         if(excluded.has(n)) continue;
@@ -386,7 +401,7 @@ async function liveDiscover(p, excludeNames, maxN, weekend){
     for(const u of hrefs.slice(0, 2)){
       let txt = null;
       try{
-        const r = await fetchWithTimeout("https://r.jina.ai/" + u, 18000);
+        const r = await fetchWithTimeout("https://r.jina.ai/" + u, 8000);
         if(r) txt = await r.text();
       }catch(e){}
       if(!txt || txt.length < 400) continue;
@@ -403,7 +418,7 @@ async function liveDiscover(p, excludeNames, maxN, weekend){
   const out = [];
   for(const item of ranked.slice(0, 12)){
     const name = item[0], arr = item[1];
-    const snips = await webSearchMulti(name + " 必去景点 攻略", 3);
+    const snips = await withTimeout(webSearchMulti(name + " 必去景点 攻略", 3), 7000, []);
     if(!snips.length) continue;
     const best = snips.find(s => rel.some(k => (s.body || "").includes(k)));
     if(!best) continue;
@@ -510,9 +525,11 @@ async function discoverySearch(p, maxKeep){
   candidates.push("旅游目的地推荐");
   const good = ["旅游","攻略","推荐","目的地","景点","游玩","游记","打卡","景区","旅行","度假","路线"];
   const out = [], seen = new Set();
-  for(const q of candidates.slice(0,5)){
+  const qs = candidates.slice(0,3);
+  for(let i = 0; i < qs.length; i++){
     if(out.length >= maxKeep) break;
-    for(const r of await webSearchMulti(q, 5)){
+    setStatus(`正在全网搜索热门推荐线索 (${i+1}/${qs.length})…`);
+    for(const r of await webSearchMulti(qs[i], 5)){
       const text = (r.title||"") + (r.body||"");
       if(!good.some(k => text.includes(k))) continue;
       if(seen.has(text) || !r.href) continue;
@@ -802,29 +819,32 @@ async function runGeneration(){
     S.mode = "nomore"; render(); return;
   }
   setStatus("正在全网搜索热门推荐线索…");
-  const discovery = await discoverySearch(S.profile);
+  // 全网线索：最多等 15 秒，超时就跳过（不阻塞推荐结果）
+  const discovery = await withTimeout(discoverySearch(S.profile), 15000, []);
   const rich = [];
   for(let i = 0; i < top.length; i++){
     const d = top[i].dest;
     setStatus(`[${i+1}/${top.length}] 正在搜索 ${d.name} 的攻略与图片…`);
-    const snippets = await webSearchMulti(`${d.name} 必去景点 亮点 攻略`, 4);
+    const snippets = await withTimeout(webSearchMulti(`${d.name} 必去景点 亮点 攻略`, 4), 8000, []);
     const images = [];
-    for(const u of await imageSearch(`${d.name} 风景`, 4)){
-      const data = await imgToDataUrl(u);
+    const imgUrls = await withTimeout(imageSearch(`${d.name} 风景`, 4), 8000, []);
+    for(const u of imgUrls){
+      const data = await withTimeout(imgToDataUrl(u), 9000, null);
       images.push(data ? {kind:"data", value:data} : {kind:"url", value:u});
       if(images.length >= 2) break;
     }
     rich.push({score: top[i].score, dest: d, snippets, images});
   }
-  // 全网实时发现（知识库之外）
+  // 全网实时发现（知识库之外）：最多等 20 秒
   const kbNames = new Set(DESTINATIONS.map(d => d.name));
   const excludeSet = new Set([...kbNames, ...S.shown]);
   setStatus(weekend ? "正在全网搜索你周边的周末好去处…" : "正在全网搜索知识库之外的新发现…");
-  const live = await liveDiscover(S.profile, excludeSet, weekend ? 6 : 4, weekend);
+  const live = await withTimeout(liveDiscover(S.profile, excludeSet, weekend ? 6 : 4, weekend), 20000, []);
   for(const item of live){
     item.images = [];
-    for(const u of await imageSearch(item.name + " 风景", 3)){
-      const data = await imgToDataUrl(u);
+    const urls = await withTimeout(imageSearch(item.name + " 风景", 3), 6000, []);
+    for(const u of urls){
+      const data = await withTimeout(imgToDataUrl(u), 8000, null);
       item.images.push(data ? {kind:"data", value:data} : {kind:"url", value:u});
       break;
     }
