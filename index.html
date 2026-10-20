@@ -472,13 +472,71 @@ function decodeBingUrl(u){
   return u;
 }
 
+/* 360 图片搜索（JSONP：国内直连、无需代理、图床支持跨域） */
+let _jsonpSeq = 0;
+function jsonpImageSearch(query, max){
+  return new Promise((resolve) => {
+    const cb = "_jis" + (++_jsonpSeq) + "_" + Date.now();
+    const src = "https://image.so.com/j?q=" + encodeURIComponent(query) + "&pn=0&rn=" + Math.max(10, (max || 4) * 3) + "&callback=" + cb;
+    const s = document.createElement("script");
+    let settled = false;
+    const finish = (val) => {
+      if(settled) return;
+      settled = true;
+      try{ delete window[cb]; }catch(e){ window[cb] = undefined; }
+      if(s.parentNode) s.parentNode.removeChild(s);
+      resolve(val || []);
+    };
+    window[cb] = (data) => {
+      try{
+        const list = (data && data.list) || [];
+        const urls = [];
+        for(const it of list){
+          const u = it && (it.thumb || it.img);
+          if(u && urls.indexOf(u) < 0) urls.push(u);
+          if(urls.length >= max) break;
+        }
+        finish(urls);
+      }catch(e){ finish([]); }
+    };
+    const timer = setTimeout(() => finish([]), 6000);
+    s.onerror = () => { clearTimeout(timer); finish([]); };
+    s.src = src;
+    document.head.appendChild(s);
+  });
+}
+
+/* 无图时的兜底：生成渐变卡片（离线可用，保证"图文并茂"） */
+function placeholderImage(name){
+  const colors = [["#0f766e","#14b8a6"],["#b45309","#f59e0b"],["#1d4ed8","#60a5fa"],["#7c2d12","#fb923c"],["#4c1d95","#a78bfa"]];
+  let h = 0;
+  const s = String(name || "");
+  for(let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 997;
+  const pair = colors[h % colors.length];
+  const label = s.slice(0, 12).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='880' height='550'>" +
+    "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>" +
+    "<stop offset='0' stop-color='" + pair[0] + "'/><stop offset='1' stop-color='" + pair[1] + "'/></linearGradient></defs>" +
+    "<rect width='880' height='550' fill='url(#g)'/>" +
+    "<circle cx='720' cy='110' r='190' fill='rgba(255,255,255,0.08)'/>" +
+    "<circle cx='120' cy='470' r='130' fill='rgba(255,255,255,0.06)'/>" +
+    "<text x='440' y='290' font-size='52' font-family='PingFang SC,Microsoft YaHei,sans-serif' fill='#ffffff' text-anchor='middle'>🧳 " + label + "</text>" +
+    "</svg>";
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
 async function imageSearch(query, max){
   max = max || 4;
+  // 1) 360 图片：国内直连最快，优先使用
+  let urls = await jsonpImageSearch(query, max);
+  if(urls.length >= max) return urls.slice(0, max);
+  const seen = new Set(urls);
+  // 2) 维基共享（可访问时补充高质量图片）
   const qs = [query];
   if(EN_KEYWORDS[query]) qs.unshift(EN_KEYWORDS[query]);
   else if(query.includes("·")) qs.push(query.split("·")[1]);
-  const urls = [], seen = new Set();
   for(const q of qs){
+    if(urls.length >= max) break;
     try{
       const api = "https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch="
                 + encodeURIComponent(q) + "&gsrnamespace=6&gsrlimit=6&prop=imageinfo&iiprop=url&iiurlwidth=1200&format=json&origin=*";
@@ -493,8 +551,8 @@ async function imageSearch(query, max){
         }
       }
     }catch(e){}
-    if(urls.length >= max) break;
   }
+  // 3) 必应图片（代理兜底，最后尝试）
   if(urls.length < max){
     const url = "https://cn.bing.com/images/search?q=" + encodeURIComponent(query) + "&form=HDRSC2";
     const txt = await fetchViaProxies(url, 5000);
@@ -886,6 +944,7 @@ async function runGeneration(){
           ));
           images.push(...loaded);
         }
+        if(!images.length) images.push({kind:"data", value: placeholderImage(d.name)});
         return {score: item.score, dest: d, snippets, images};
       })),
       withTimeout(liveDiscover(S.profile, excludeSet, weekend ? 6 : 4, weekend), 12000, []),
@@ -899,6 +958,7 @@ async function runGeneration(){
         const data = await withTimeout(imgToDataUrl(urls[0]), 5000, null);
         item.images.push(data ? {kind:"data", value:data} : {kind:"url", value:urls[0]});
       }
+      if(!item.images.length) item.images.push({kind:"data", value: placeholderImage(item.name)});
     }));
 
     await Promise.resolve(); // 占位，保持结构清晰
