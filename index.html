@@ -258,11 +258,18 @@ const PROXIES = [
 ];
 
 async function fetchViaProxies(url, ms){
-  for(const make of PROXIES){
-    const txt = await fetchTextWithTimeout(make(url), ms || 7000);
-    if(txt && txt.length > 200) return txt;
+  // 多个代理同时竞速，取最先成功的那个（而不是一个一个等超时）
+  ms = ms || 6000;
+  const attempts = PROXIES.map(async make => {
+    const txt = await fetchTextWithTimeout(make(url), ms);
+    if(!txt || txt.length < 200) throw new Error("empty");
+    return txt;
+  });
+  try{
+    return await Promise.any(attempts);
+  }catch(e){
+    return null;
   }
-  return null;
 }
 
 function parseBingHtml(html, max){
@@ -295,7 +302,7 @@ function parseJinaMarkdown(md, max){
 
 async function webSearch(query, max){
   const url = "https://cn.bing.com/search?q=" + encodeURIComponent(query) + "&setlang=zh-hans";
-  const txt = await fetchViaProxies(url, 9000);
+  const txt = await fetchViaProxies(url, 5000);
   if(!txt) return [];
   const t = txt.trim();
   if(t.startsWith("<")){
@@ -329,13 +336,23 @@ function parse360(html, max){
 }
 
 async function webSearchMulti(query, max){
+  // 360 与 必应 同时搜，谁先成功用谁
   const u360 = "https://www.so.com/s?q=" + encodeURIComponent(query);
-  const txt = await fetchViaProxies(u360, 9000);
-  if(txt){
-    const r = parse360(txt, max);
+  const uBing = "https://cn.bing.com/search?q=" + encodeURIComponent(query) + "&setlang=zh-hans";
+  const [t360, tBing] = await Promise.all([
+    fetchViaProxies(u360, 6000),
+    fetchViaProxies(uBing, 6000),
+  ]);
+  if(t360){
+    const r = parse360(t360, max);
     if(r.length) return r;
   }
-  return webSearch(query, max);
+  if(tBing){
+    const t = tBing.trim();
+    const r = t.startsWith("<") ? parseBingHtml(tBing, max) : parseJinaMarkdown(tBing, max);
+    if(r.length) return r;
+  }
+  return [];
 }
 
 const STOP_WORDS = ("旅游 攻略 推荐 景点 适合 必去 打卡 周末 出发 周边 目的地 路线 门票 免费 好玩 值得 最佳 季节 日游 两天 小时 公里 地方 这些 那些 国家 城市 假期 国庆 春节 清明 五一 中秋 元旦 小长假 酒店 民宿 美食 住宿 交通 自驾 高铁 火车 飞机 机场 车站 时间 预算 行程 安排 体验 文化 自然 风景 人文 历史 建筑 老街 古城 古镇 国内 国外 出境 入境 签证 游客 旅行 驴友 网红 小众 热门 人均 参考 攻略 分享 收藏 关注 点击 查看 详细 介绍 大全 合集 名单 榜单 排名").split(" ");
@@ -386,8 +403,11 @@ async function liveDiscover(p, excludeNames, maxN, weekend){
   if(city){ excluded.add(city); excluded.add(city + "市"); excluded.add(city + "市区"); }
   if(district) excluded.add(district);
   const cand = new Map(), hrefs = [];
-  for(const q of queries.slice(0, 4)){
-    for(const r of await withTimeout(webSearchMulti(q, 5), 7000, [])){
+  const queryResults = await Promise.all(
+    queries.slice(0, 4).map(q => withTimeout(webSearchMulti(q, 5), 6000, []))
+  );
+  for(const rs of queryResults){
+    for(const r of rs){
       if(r.href) hrefs.push(r.href);
       for(const n of extractNames((r.title || "") + " " + (r.body || ""))){
         if(excluded.has(n)) continue;
@@ -415,17 +435,17 @@ async function liveDiscover(p, excludeNames, maxN, weekend){
   }
   const ranked = [...cand.entries()].sort((a, b) => (b[1][0] - a[1][0]) || (b[0].length - a[0].length));
   const rel = ["旅游","景点","攻略","景区","游玩","公园","门票","打卡","风景","度假","古镇","古城","温泉","海滩","一日游"];
-  const out = [];
-  for(const item of ranked.slice(0, 12)){
-    const name = item[0], arr = item[1];
-    const snips = await withTimeout(webSearchMulti(name + " 必去景点 攻略", 3), 7000, []);
-    if(!snips.length) continue;
-    const best = snips.find(s => rel.some(k => (s.body || "").includes(k)));
-    if(!best) continue;
-    out.push({name, href: best.href || arr[1], body: best.body || arr[2]});
-    if(out.length >= maxN) break;
-  }
-  return out;
+  const enriched = await Promise.all(
+    ranked.slice(0, 10).map(async (item) => {
+      const name = item[0], arr = item[1];
+      const snips = await withTimeout(webSearchMulti(name + " 必去景点 攻略", 3), 6000, []);
+      if(!snips.length) return null;
+      const best = snips.find(s => rel.some(k => (s.body || "").includes(k)));
+      if(!best) return null;
+      return {name, href: best.href || arr[1], body: best.body || arr[2]};
+    })
+  );
+  return enriched.filter(Boolean).slice(0, maxN);
 }
 
 function decodeBingUrl(u){
@@ -444,7 +464,7 @@ async function imageSearch(query, max){
     try{
       const api = "https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch="
                 + encodeURIComponent(q) + "&gsrnamespace=6&gsrlimit=6&prop=imageinfo&iiprop=url&iiurlwidth=1200&format=json&origin=*";
-      const r = await fetchWithTimeout(api, 8000);
+      const r = await fetchWithTimeout(api, 5000);
       if(r){
         const j = await r.json();
         const pages = (j.query && j.query.pages) || {};
@@ -459,7 +479,7 @@ async function imageSearch(query, max){
   }
   if(urls.length < max){
     const url = "https://cn.bing.com/images/search?q=" + encodeURIComponent(query) + "&form=HDRSC2";
-    const txt = await fetchViaProxies(url, 9000);
+    const txt = await fetchViaProxies(url, 5000);
     if(txt){
       const mm = txt.match(/murl&quot;:&quot;(.*?)&quot;/g) || [];
       for(let m of mm){
@@ -818,43 +838,61 @@ async function runGeneration(){
   if(!top.length){
     S.mode = "nomore"; render(); return;
   }
-  setStatus("正在全网搜索热门推荐线索…");
-  // 全网线索：最多等 15 秒，超时就跳过（不阻塞推荐结果）
-  const discovery = await withTimeout(discoverySearch(S.profile), 15000, []);
-  const rich = [];
-  for(let i = 0; i < top.length; i++){
-    const d = top[i].dest;
-    setStatus(`[${i+1}/${top.length}] 正在搜索 ${d.name} 的攻略与图片…`);
-    const snippets = await withTimeout(webSearchMulti(`${d.name} 必去景点 亮点 攻略`, 4), 8000, []);
-    const images = [];
-    const imgUrls = await withTimeout(imageSearch(`${d.name} 风景`, 4), 8000, []);
-    for(const u of imgUrls){
-      const data = await withTimeout(imgToDataUrl(u), 9000, null);
-      images.push(data ? {kind:"data", value:data} : {kind:"url", value:u});
-      if(images.length >= 2) break;
-    }
-    rich.push({score: top[i].score, dest: d, snippets, images});
-  }
-  // 全网实时发现（知识库之外）：最多等 20 秒
+  // 计时提示：让用户看到进度，网络慢时也能知道在跑
+  let tick = 0;
+  setStatus("正在联网搜索（并行）…");
+  const timer = setInterval(() => { tick += 1; setStatus(`正在联网搜索攻略与配图…已用时 ${tick} 秒（网络慢会自动跳过，不影响推荐结果）`); }, 1000);
+
   const kbNames = new Set(DESTINATIONS.map(d => d.name));
   const excludeSet = new Set([...kbNames, ...S.shown]);
-  setStatus(weekend ? "正在全网搜索你周边的周末好去处…" : "正在全网搜索知识库之外的新发现…");
-  const live = await withTimeout(liveDiscover(S.profile, excludeSet, weekend ? 6 : 4, weekend), 20000, []);
-  for(const item of live){
-    item.images = [];
-    const urls = await withTimeout(imageSearch(item.name + " 风景", 3), 6000, []);
-    for(const u of urls){
-      const data = await withTimeout(imgToDataUrl(u), 8000, null);
-      item.images.push(data ? {kind:"data", value:data} : {kind:"url", value:u});
-      break;
-    }
+
+  try{
+    // 三个任务完全并行：全网线索 / 6 个目的地（各自内部也并行）/ 实时发现
+    const [discovery, rich, live] = await Promise.all([
+      withTimeout(discoverySearch(S.profile), 8000, []),
+      Promise.all(top.map(async (item) => {
+        const d = item.dest;
+        const [snippets, imgUrls] = await Promise.all([
+          withTimeout(webSearchMulti(`${d.name} 必去景点 亮点 攻略`, 4), 6000, []),
+          withTimeout(imageSearch(`${d.name} 风景`, 4), 6000, []),
+        ]);
+        const images = [];
+        const cand = imgUrls.slice(0, 2);
+        if(cand.length){
+          const loaded = await Promise.all(cand.map(u =>
+            withTimeout(imgToDataUrl(u), 6000, null).then(data => data ? {kind:"data", value:data} : {kind:"url", value:u})
+          ));
+          images.push(...loaded);
+        }
+        return {score: item.score, dest: d, snippets, images};
+      })),
+      withTimeout(liveDiscover(S.profile, excludeSet, weekend ? 6 : 4, weekend), 12000, []),
+    ]);
+
+    // 实时发现的配图：全部并行，各 1 张
+    await Promise.all(live.map(async (item) => {
+      item.images = [];
+      const urls = await withTimeout(imageSearch(item.name + " 风景", 3), 5000, []);
+      if(urls.length){
+        const data = await withTimeout(imgToDataUrl(urls[0]), 5000, null);
+        item.images.push(data ? {kind:"data", value:data} : {kind:"url", value:urls[0]});
+      }
+    }));
+
+    await Promise.resolve(); // 占位，保持结构清晰
+    S.summary = buildSummary(S.profile, rich, discovery, live, weekend);
+    S.guide = buildGuide(S.profile, rich, discovery, live, weekend);
+    S.richCount = rich.length;
+    S.shown.push(...rich.map(r => r.dest.name), ...live.map(x => x.name));
+    S.mode = "result"; render();
+  } catch(e){
+    S.mode = "result"; S.richCount = 0;
+    S.summary = "生成时出错：" + ((e && e.message) || e) + "\n\n请点「重新填写」重试。";
+    S.guide = "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body><h2>生成失败</h2><p>" + esc(String((e && e.message) || e)) + "</p></body></html>";
+    render();
+  } finally {
+    clearInterval(timer);
   }
-  setStatus("正在生成图文攻略…");
-  S.summary = buildSummary(S.profile, rich, discovery, live, weekend);
-  S.guide = buildGuide(S.profile, rich, discovery, live, weekend);
-  S.richCount = rich.length;
-  S.shown.push(...rich.map(r => r.dest.name), ...live.map(x => x.name));
-  S.mode = "result"; render();
 }
 
 function nomoreBody(){
