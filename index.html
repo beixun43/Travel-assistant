@@ -68,6 +68,124 @@
   .disc{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:14px 16px;margin:12px}
   .disc h4{color:#b45309;margin-bottom:6px}
   footer.g-foot{text-align:center;color:#9ca3af;font-size:11.5px;padding:14px}
+  /* 新增：搜索 / 收藏 / 行程 / 分享 */
+  .hdr-search{margin-top:12px}
+  .hdr-input{width:100%;padding:10px 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);
+    background:rgba(255,255,255,.16);color:#fff;font-size:14px}
+  .hdr-input::placeholder{color:rgba(255,255,255,.75)}
+  .hdr-counts{font-size:12px;opacity:.9;margin-left:6px;font-weight:400}
+  .mini{font-size:12px;padding:5px 10px;border-radius:9px;border:1px solid #e5e7eb;background:#f8fafc;
+    color:#475569;cursor:pointer}
+  .mini:hover{border-color:#0f766e;color:#0f766e}
+  .mark{font-size:11px;padding:2px 8px;border-radius:999px;margin-left:6px}
+  .mark.fav{background:#fef3c7;color:#b45309}
+  .mark.done{background:#dcfce7;color:#15803d}
+  .intent-tip{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857;font-size:13px;
+    padding:8px 12px;border-radius:10px;margin:10px 0}
+  .rank-line{font-size:14px}
+  .rank-actions{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+  .travel-line{font-size:12px;color:#0f766e;margin-top:4px;background:#f0fdfa;border-radius:8px;padding:4px 8px;display:inline-block}
+  .search-row{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;
+    padding:12px 0;border-bottom:1px dashed #e5e7eb}
+  .search-row:last-child{border-bottom:none}
+  .search-main{flex:1;min-width:0}
+  .search-name{font-weight:600;color:#0f766e;font-size:15px}
+  .search-meta{font-size:12px;color:#6b7280;margin-top:2px}
+  .search-why{font-size:12.5px;color:#374151;margin-top:3px}
+  .search-actions{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
+  .search-summary{font-size:12.5px;color:#6b7280;margin:8px 0 2px}
+  .modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:50;
+    padding:24px 14px;overflow-y:auto}
+  .modal.show{display:block}
+  .modal-box{max-width:720px;margin:20px auto;background:#fff;border-radius:18px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.3)}
+  .modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;
+    background:#0f766e;color:#fff;font-size:15px}
+  .modal-close{cursor:pointer;font-size:16px;padding:0 4px}
+  .modal-body{padding:16px 18px;max-height:60vh;overflow-y:auto}
+  .modal-foot{display:flex;gap:8px;padding:12px 18px;border-top:1px solid #eef2f7;flex-wrap:wrap}
+  .modal-foot button{flex:1;min-width:110px}
+  .itin-head{margin-bottom:12px}
+  .itin-title{font-size:17px;font-weight:700;color:#0f766e}
+  .itin-sub{font-size:12.5px;color:#6b7280;margin-top:3px}
+  .day-card{background:#f8fafc;border:1px solid #eef2f7;border-radius:14px;padding:12px 14px;margin:10px 0}
+  .day-head{font-weight:700;color:#b45309;font-size:14px;margin-bottom:6px}
+  .day-row{font-size:13.5px;margin:5px 0;display:flex;gap:8px}
+  .day-row b{color:#475569;white-space:nowrap}
+  .day-row em{display:block;color:#c2410c;font-style:normal;margin-top:2px}
+  .day-row.spare{color:#6b7280;font-size:12.5px}
+  .itin-tips{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px 14px;margin-top:12px}
+  .itin-tips h4{margin:0 0 6px;color:#b45309;font-size:14px}
+  .itin-tips ul{margin:0;padding-left:18px;font-size:13px;color:#4b5563}
+  .itin-note{font-size:11.5px;color:#9ca3af;margin-top:10px}
+  /* 花费估算 / 住宿 / 月份 / 对比 */
+  .cost-box{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:12px 14px;margin-top:12px}
+  .cost-head{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#0f766e;flex-wrap:wrap;gap:6px}
+  .cost-days input{width:56px;padding:2px 6px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px}
+  .cost-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+  .cost-table td{padding:5px 4px;border-bottom:1px dashed #eef2f7}
+  .cost-table td:last-child{text-align:right;color:#374151}
+  .cost-table tr.cost-total td{font-weight:700;color:#0f766e;border-bottom:none;font-size:14.5px}
+  .cost-note{font-size:11.5px;color:#9ca3af;margin-top:6px}
+  .stay-box{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:12px 14px;margin-top:12px}
+  .stay-box h4{margin:0 0 8px;color:#0f766e;font-size:14px}
+  .stay-box ul{margin:0;padding-left:18px;font-size:13px;color:#374151}
+  .stay-box li{margin:4px 0}
+  .stay-band{font-size:12px;color:#6b7280;margin-top:8px}
+  .month-strip{display:flex;gap:3px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  .month-strip.compact{margin-top:6px}
+  .mc{display:inline-block;width:26px;height:20px;line-height:20px;text-align:center;border-radius:4px;font-size:10.5px;color:#fff}
+  .month-strip.compact .mc{width:16px;height:12px}
+  .mc3{background:#0f766e}.mc2{background:#5eead4;color:#0f766e}.mc1{background:#e5e7eb;color:#9ca3af}
+  .mc-legend{font-size:11px;color:#9ca3af;margin-left:6px}
+  .cmp-bar{display:flex;align-items:center;gap:8px;margin-top:10px;padding:8px 12px;
+    background:#f0fdfa;border:1px solid #a7f3d0;border-radius:12px;font-size:13px;color:#047857}
+  .cmp-bar button{flex:0 0 auto}
+  .cmp-label{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+  .cmp-wrap{overflow-x:auto}
+  .cmp-table{border-collapse:collapse;font-size:12.5px;width:100%}
+  .cmp-table th,.cmp-table td{border:1px solid #eef2f7;padding:6px 8px;text-align:left;vertical-align:top}
+  .cmp-table th{background:#f8fafc;color:#475569;white-space:nowrap;font-weight:600}
+  .cmp-table tr:first-child td{font-size:14px;color:#0f766e}
+  /* 环线 / 相似 / 节庆 */
+  .route-box{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:14px}
+  .route-summary{background:#f0fdfa;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#0f766e;line-height:1.8}
+  .route-stop{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed #eef2f7}
+  .route-stop:last-child{border-bottom:none}
+  .route-idx{width:26px;height:26px;border-radius:50%;background:#0f766e;color:#fff;font-size:13px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .route-name{font-weight:600;color:#0f766e;font-size:14.5px}
+  .route-meta{font-size:12.5px;color:#6b7280;margin-top:2px}
+  .route-leg{font-size:12.5px;color:#b45309;background:#fffbeb;border-radius:8px;padding:4px 8px;margin-top:6px;display:inline-block}
+  .route-note{font-size:11.5px;color:#9ca3af;margin-top:10px}
+  .sim-row{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px dashed #eef2f7}
+  .sim-main{flex:1;min-width:0}
+  .sim-name{font-weight:600;color:#0f766e;font-size:14.5px}
+  .sim-score{font-size:11.5px;color:#b45309;background:#fffbeb;padding:1px 7px;border-radius:999px;margin-left:4px}
+  .sim-meta{font-size:12px;color:#6b7280;margin-top:2px}
+  .sim-why{font-size:12.5px;color:#374151;margin-top:3px}
+  .sim-actions{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
+  .fest-box{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:12px 14px;margin-top:12px}
+  .fest-box h4{margin:0 0 8px;color:#b45309;font-size:14px}
+  .fest-box ul{margin:0;padding-left:18px;font-size:13px;color:#374151}
+  .fest-month{margin-bottom:10px}
+  .fest-m{font-weight:700;color:#b45309;font-size:13.5px}
+  .fest-month ul{margin:4px 0 0;padding-left:18px;font-size:12.5px;color:#4b5563}
+  /* 打包清单 / 出国速查 */
+  .pack-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  .pack-row{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;color:#374151;cursor:pointer}
+  .pack-row input{margin-top:3px}
+  .tips-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:12px 14px;margin-top:12px}
+  .tips-box h4{margin:0 0 8px;color:#1d4ed8;font-size:14px}
+  .tips-table{width:100%;border-collapse:collapse;font-size:13px}
+  .tips-table td{padding:4px 4px;border-bottom:1px dashed #dbeafe}
+  .tips-table td:first-child{color:#6b7280;white-space:nowrap;width:76px}
+  .tips-table td:last-child{color:#1f2937}
+  .tips-note{font-size:11.5px;color:#6b7280;margin-top:8px}
+  .tc-list{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+  .tc-row{display:flex;gap:10px;font-size:12.5px;padding:5px 0;border-bottom:1px dashed #eef2f7}
+  .tc-row b{min-width:64px;color:#0f766e}
+  .tc-row span{color:#4b5563}
 </style>
 </head>
 <body>
@@ -79,6 +197,16 @@ const DESTINATIONS = [{"name": "云南·大理", "country": "国内", "region": 
 const EN_KEYWORDS = {"云南·大理": "Dali Yunnan", "云南·丽江": "Lijiang Yunnan", "云南·香格里拉": "Shangri-La Yunnan", "云南·西双版纳": "Xishuangbanna", "四川·成都": "Chengdu China", "四川·九寨沟": "Jiuzhaigou", "四川·稻城亚丁": "Yading Daocheng", "重庆": "Chongqing China", "湖南·张家界": "Zhangjiajie", "湖南·长沙": "Changsha", "北京": "Beijing China", "上海": "Shanghai China", "浙江·杭州": "Hangzhou West Lake", "江苏·苏州": "Suzhou gardens", "安徽·黄山": "Huangshan Mountain", "福建·厦门": "Xiamen Gulangyu", "广西·桂林阳朔": "Guilin Yangshuo", "广西·北海涠洲岛": "Weizhou Island Beihai", "海南·三亚": "Sanya Hainan", "海南·万宁": "Wanning Hainan", "新疆·伊犁": "Ili Xinjiang", "新疆·喀纳斯": "Kanas Lake Xinjiang", "西藏·拉萨/林芝": "Lhasa Tibet", "内蒙古·呼伦贝尔": "Hulunbuir grassland", "甘肃·敦煌": "Dunhuang Mogao", "陕西·西安": "Xi'an Terracotta", "贵州·贵阳/黄果树": "Huangguoshu Waterfall", "云南·腾冲": "Tengchong Yunnan", "山东·青岛": "Qingdao", "青海·青海湖": "Qinghai Lake", "黑龙江·哈尔滨": "Harbin ice festival", "吉林·长白山": "Changbai Mountain", "广东·广州": "Guangzhou", "广东·潮汕": "Chaoshan food", "香港": "Hong Kong", "澳门": "Macau", "台湾": "Taiwan", "泰国·曼谷/清迈/普吉": "Thailand Phuket", "日本·东京/大阪": "Tokyo Japan", "日本·北海道": "Hokkaido Japan", "韩国·首尔/济州": "Jeju Island Korea", "新加坡": "Singapore", "马来西亚·吉隆坡/沙巴": "Sabah Malaysia", "越南·岘港/芽庄": "Da Nang Vietnam", "印度尼西亚·巴厘岛": "Bali Indonesia", "马尔代夫": "Maldives", "意大利·罗马/佛罗伦萨": "Florence Italy", "法国·巴黎": "Paris France", "瑞士": "Switzerland Alps", "西班牙·巴塞罗那": "Barcelona Spain", "土耳其·伊斯坦布尔/卡帕多奇亚": "Cappadocia Turkey", "阿联酋·迪拜": "Dubai", "埃及": "Egypt pyramids", "新西兰": "New Zealand Milford Sound", "澳大利亚·悉尼/墨尔本": "Sydney Australia", "冰岛": "Iceland aurora", "云南·建水": "Jianshui ancient town", "云南·元阳梯田": "Yuanyang rice terraces", "云南·普者黑": "Puzhehei Yunnan", "云南·弥勒": "Mile Yunnan Dongfengyun", "云南·蒙自": "Mengzi Yunnan", "四川·四姑娘山": "Mount Siguniang", "四川·毕棚沟": "Bipenggou valley", "四川·阆中古城": "Langzhong ancient city", "四川·乐山峨眉山": "Leshan Giant Buddha", "重庆·武隆": "Wulong Karst", "贵州·镇远古镇": "Zhenyuan ancient town", "贵州·兴义万峰林": "Wanfenglin Xingyi", "贵州·梵净山": "Mount Fanjing", "西藏·日喀则": "Shigatse Tibet", "青海·大柴旦翡翠湖": "Dachaidan Emerald Lake", "甘肃·张掖": "Zhangye Danxia", "甘肃·甘南扎尕那": "Zhagana Gannan", "宁夏·中卫": "Shapotou Zhongwei", "新疆·塔县帕米尔": "Tashkurgan Pamir", "新疆·吐鲁番": "Turpan Xinjiang", "内蒙古·阿尔山": "Arxan Inner Mongolia", "陕西·汉中": "Hanzhong Shaanxi", "浙江·丽水缙云": "Xiandu Jinyun", "浙江·莫干山": "Moganshan", "浙江·舟山嵊泗": "Shengsi Islands", "浙江·绍兴": "Shaoxing", "福建·泉州": "Quanzhou Fujian", "福建·霞浦": "Xiapu mudflat", "福建·平潭岛": "Pingtan Island", "福建·武夷山": "Mount Wuyi", "江西·婺源": "Wuyuan Jiangxi", "江西·景德镇": "Jingdezhen porcelain", "江西·庐山": "Mount Lu", "江西·武功山": "Wugong Mountain", "安徽·徽州古城": "Huizhou ancient city", "山东·威海": "Weihai", "山东·泰山": "Mount Tai", "山西·平遥古城": "Pingyao ancient city", "山西·大同": "Yungang Grottoes", "河南·洛阳": "Longmen Grottoes Luoyang", "河南·老君山": "Laojun Mountain", "湖北·恩施": "Enshi Grand Canyon", "湖北·神农架": "Shennongjia", "湖南·凤凰古城": "Fenghuang ancient town", "广西·柳州": "Liuzhou Guangxi", "广西·德天瀑布": "Detian Waterfall", "辽宁·大连": "Dalian", "吉林·延吉": "Yanji Yanbian", "老挝·琅勃拉邦": "Luang Prabang", "柬埔寨·暹粒吴哥窟": "Angkor Wat", "菲律宾·长滩岛": "Boracay", "尼泊尔·加德满都/博卡拉": "Pokhara Nepal", "斯里兰卡": "Sri Lanka", "日本·冲绳": "Okinawa", "印度尼西亚·科莫多/龙目岛": "Komodo Island", "哈萨克斯坦·阿拉木图": "Almaty", "乌兹别克斯坦·撒马尔罕": "Samarkand", "约旦·佩特拉": "Petra Jordan", "卡塔尔·多哈": "Doha", "蒙古·乌兰巴托": "Ulaanbaatar", "阿塞拜疆·巴库": "Baku Azerbaijan", "摩洛哥": "Morocco", "突尼斯": "Tunisia", "肯尼亚·马赛马拉": "Masai Mara", "毛里求斯": "Mauritius", "塞舌尔": "Seychelles", "斐济": "Fiji", "希腊·圣托里尼/雅典": "Santorini Greece", "葡萄牙·里斯本": "Lisbon", "捷克·布拉格": "Prague", "奥地利·维也纳/哈尔施塔特": "Hallstatt Austria", "匈牙利·布达佩斯": "Budapest", "克罗地亚·杜布罗夫尼克": "Dubrovnik", "斯洛文尼亚·布莱德湖": "Lake Bled", "挪威·峡湾/特罗姆瑟": "Tromso Norway", "芬兰·拉普兰": "Lapland Finland", "丹麦·哥本哈根": "Copenhagen", "荷兰·阿姆斯特丹": "Amsterdam", "英国·伦敦": "London", "德国·慕尼黑/新天鹅堡": "Neuschwanstein Castle", "塞尔维亚·贝尔格莱德": "Belgrade", "格鲁吉亚·第比利斯": "Tbilisi Georgia", "阿尔巴尼亚·地拉那": "Tirana", "黑山·科托尔": "Kotor Montenegro", "美国·洛杉矶/旧金山": "San Francisco", "美国·纽约": "New York City", "加拿大·温哥华/班夫": "Banff Canada", "墨西哥·坎昆": "Cancun", "古巴·哈瓦那": "Havana Cuba", "秘鲁·马丘比丘": "Machu Picchu", "日本·函馆": "Hakodate", "日本·小樽": "Otaru", "日本·钏路": "Kushiro", "日本·知床": "Shiretoko", "日本·富山": "Toyama Japan", "日本·福井": "Fukui Japan", "日本·奈良": "Nara Japan", "日本·神户": "Kobe", "日本·姬路": "Himeji Castle", "日本·伊豆": "Izu Peninsula", "日本·上高地": "Kamikochi", "日本·立山黑部": "Tateyama Kurobe", "日本·美瑛": "Biei", "日本·阿苏": "Mount Aso", "日本·云仙": "Unzen", "日本·天草": "Amakusa", "日本·雾岛": "Kirishima", "日本·指宿": "Ibusuki", "日本·宫古岛": "Miyako Island", "日本·西表岛": "Iriomote Island", "日本·白神山地": "Shirakami Sanchi", "日本·能登半岛": "Noto Peninsula", "日本·越后汤泽": "Echigo Yuzawa", "日本·志贺高原": "Shiga Kogen", "日本·野泽温泉": "Nozawa Onsen", "日本·川越": "Kawagoe", "日本·镰仓": "Kamakura", "日本·秩父": "Chichibu", "日本·仙台": "Sendai", "日本·松岛": "Matsushima", "日本·平泉": "Hiraizumi", "日本·下关": "Shimonoseki", "日本·唐津": "Karatsu", "日本·高千穗": "Takachiho Gorge", "日本·网走": "Abashiri", "日本·礼文岛": "Rebun Island", "日本·利尻岛": "Rishiri Island", "日本·白滨": "Shirahama", "日本·城崎温泉": "Kinosaki Onsen", "日本·伊香保温泉": "Ikaho Onsen", "日本·尾道": "Onomichi", "日本·萩": "Hagi Japan", "日本·祖谷": "Iya Valley", "日本·直岛": "Naoshima Island", "韩国·水原": "Suwon", "韩国·坡州": "Paju", "韩国·大邱": "Daegu", "韩国·光州": "Gwangju", "韩国·丽水": "Yeosu", "韩国·统营": "Tongyeong", "韩国·束草": "Sokcho", "韩国·春川": "Chuncheon", "韩国·安东": "Andong", "韩国·顺天": "Suncheon", "韩国·木浦": "Mokpo", "台湾·台北": "Taipei", "台湾·台中": "Taichung", "台湾·台南": "Tainan", "台湾·高雄": "Kaohsiung", "台湾·台东": "Taitung", "台湾·花莲": "Hualien Taroko", "台湾·宜兰": "Yilan Taiwan", "台湾·垦丁": "Kenting", "台湾·九份": "Jiufen", "台湾·阿里山": "Alishan", "台湾·日月潭": "Sun Moon Lake", "台湾·澎湖": "Penghu", "台湾·金门": "Kinmen", "台湾·马祖": "Matsu Islands", "台湾·绿岛": "Green Island Taiwan", "台湾·小琉球": "Xiaoliuqiu", "台湾·南投清境农场": "Cingjing Farm", "台湾·嘉义": "Chiayi", "台湾·彰化": "Changhua Taiwan", "台湾·新竹": "Hsinchu", "台湾·苗栗": "Miaoli Taiwan", "台湾·桃园": "Taoyuan Taiwan", "台湾·基隆": "Keelung", "泰国·北碧": "Kanchanaburi", "泰国·清刊": "Chiang Khan", "泰国·攀牙": "Phang Nga Bay", "泰国·董里": "Trang Thailand", "泰国·沙美岛": "Koh Samet", "泰国·帕岸岛": "Koh Phangan", "泰国·南邦": "Lampang", "泰国·夜丰颂": "Mae Hong Son", "泰国·乌隆他尼红莲湖": "Red Lotus Lake Udon Thani", "泰国·甘烹碧": "Kamphaeng Phet", "越南·宁平": "Ninh Binh", "越南·头顿": "Vung Tau", "越南·芹苴": "Can Tho", "越南·吉婆岛": "Cat Ba Island", "越南·风牙洞": "Phong Nha Cave", "印尼·松巴岛": "Sumba Island", "印尼·弗洛勒斯": "Flores Indonesia", "印尼·多巴湖": "Lake Toba", "印尼·韦岛": "Weh Island", "印尼·巴淡": "Batam", "菲律宾·锡亚高": "Siargao", "菲律宾·巴纳韦梯田": "Banaue Rice Terraces", "菲律宾·黎牙实比": "Mayon Volcano Legazpi", "菲律宾·伊洛伊洛": "Iloilo", "马来西亚·太平": "Taiping Malaysia", "马来西亚·金马伦高原": "Cameron Highlands", "马来西亚·刁曼岛": "Tioman Island", "马来西亚·停泊岛": "Perhentian Islands", "马来西亚·山打根": "Sandakan", "马来西亚·美里": "Miri Sarawak", "柬埔寨·马德望": "Battambang", "柬埔寨·贡布白马": "Kampot Kep", "老挝·丰沙湾": "Plain of Jars", "老挝·四千美岛": "Si Phan Don", "老挝·琅南塔": "Luang Namtha", "缅甸·曼德勒": "Mandalay", "缅甸·蒲甘": "Bagan", "缅甸·茵莱湖": "Inle Lake", "缅甸·仰光": "Yangon", "印度·瓦拉纳西": "Varanasi", "印度·果阿": "Goa India", "印度·斋普尔": "Jaipur", "印度·阿格拉泰姬陵": "Taj Mahal", "印度·瑞诗凯诗": "Rishikesh", "印度·大吉岭": "Darjeeling", "巴基斯坦·罕萨": "Hunza Valley", "巴基斯坦·斯卡杜": "Skardu", "斯里兰卡·锡吉里耶": "Sigiriya", "斯里兰卡·埃拉": "Ella Sri Lanka", "斯里兰卡·米瑞莎": "Mirissa", "不丹·廷布帕罗": "Paro Bhutan", "塔吉克斯坦·杜尚别": "Dushanbe", "塔吉克斯坦·帕米尔公路": "Pamir Highway", "吉尔吉斯斯坦·比什凯克": "Bishkek", "伊朗·伊斯法罕": "Isfahan", "伊朗·设拉子": "Shiraz", "约旦·瓦迪拉姆": "Wadi Rum", "巴林·麦纳麦": "Manama Bahrain", "拉脱维亚·里加": "Riga", "立陶宛·维尔纽斯": "Vilnius", "爱沙尼亚·塔林": "Tallinn", "卢森堡": "Luxembourg City", "摩纳哥": "Monaco", "安道尔": "Andorra", "保加利亚·索菲亚": "Sofia Bulgaria", "罗马尼亚·布拉索夫": "Brasov", "斯洛伐克·布拉迪斯拉发": "Bratislava", "马耳他": "Malta", "波黑·萨拉热窝": "Sarajevo", "北马其顿·奥赫里德": "Ohrid", "列支敦士登": "Liechtenstein", "法罗群岛": "Faroe Islands", "德国·汉堡": "Hamburg", "德国·德累斯顿": "Dresden", "德国·纽伦堡": "Nuremberg", "德国·莱茵河谷": "Rhine Valley", "意大利·都灵": "Turin", "意大利·博洛尼亚": "Bologna", "意大利·维罗纳": "Verona", "法国·斯特拉斯堡": "Strasbourg", "法国·勃艮第": "Burgundy", "西班牙·毕尔巴鄂": "Bilbao", "西班牙·托莱多": "Toledo Spain", "葡萄牙·辛特拉": "Sintra", "希腊·罗德岛": "Rhodes Greece", "希腊·米科诺斯": "Mykonos", "希腊·科孚岛": "Corfu", "挪威·卑尔根": "Bergen", "瑞典·哥德堡": "Gothenburg", "丹麦·奥胡斯": "Aarhus", "荷兰·羊角村": "Giethoorn", "荷兰·鹿特丹": "Rotterdam", "比利时·根特": "Ghent", "比利时·安特卫普": "Antwerp", "瑞士·因特拉肯": "Interlaken", "瑞士·采尔马特": "Zermatt", "英国·曼彻斯特": "Manchester", "英国·巴斯": "Bath England", "英国·约克": "York England", "英国·巨人之路": "Giant's Causeway", "爱尔兰·戈尔韦": "Galway", "危地马拉·安提瓜": "Antigua Guatemala", "巴拿马": "Panama City", "波多黎各": "Puerto Rico", "百慕大": "Bermuda", "牙买加": "Jamaica", "圣卢西亚": "Saint Lucia", "乌拉圭": "Uruguay", "哥伦比亚·波哥大": "Bogota", "阿根廷·巴里洛切": "Bariloche", "智利·圣地亚哥": "Santiago Chile", "巴西·马瑙斯亚马逊": "Amazon Rainforest", "墨西哥·瓦哈卡": "Oaxaca", "墨西哥·洛斯卡沃斯": "Los Cabos", "加拿大·哈利法克斯": "Halifax Nova Scotia", "美国·圣地亚哥": "San Diego", "美国·新奥尔良": "New Orleans", "美国·费城": "Philadelphia", "美国·华盛顿DC": "Washington DC", "美国·奥兰多": "Orlando", "瓦努阿图": "Vanuatu", "新喀里多尼亚": "New Caledonia", "库克群岛": "Cook Islands", "萨摩亚": "Samoa", "汤加": "Tonga", "关岛": "Guam", "塞班岛": "Saipan", "新西兰·基督城": "Christchurch", "新西兰·但尼丁": "Dunedin", "澳大利亚·阿德莱德": "Adelaide", "澳大利亚·布里斯班": "Brisbane", "澳大利亚·艾尔利海滩": "Airlie Beach", "埃塞俄比亚": "Ethiopia", "乌干达": "Uganda", "卢旺达": "Rwanda", "塞内加尔": "Senegal", "佛得角": "Cape Verde", "留尼汪": "Reunion Island", "索科特拉岛": "Socotra", "博茨瓦纳": "Botswana", "莫桑比克": "Mozambique", "阿尔及利亚": "Algeria", "斯威士兰": "Eswatini", "莱索托": "Lesotho", "加纳": "Ghana", "日本·京都": "Kyoto Japan", "日本·名古屋": "Nagoya Japan", "日本·横滨": "Yokohama Japan", "日本·札幌": "Sapporo Japan", "印尼·雅加达": "Jakarta Indonesia", "土耳其·安塔利亚": "Antalya Turkey", "土耳其·博德鲁姆": "Bodrum Turkey", "土耳其·伊兹密尔": "Izmir Turkey", "埃及·卢克索": "Luxor Egypt", "埃及·阿斯旺": "Aswan Egypt", "埃及·亚历山大": "Alexandria Egypt", "意大利·阿尔贝罗贝洛": "Alberobello Italy", "意大利·马泰拉": "Matera Italy", "意大利·卡普里": "Capri Italy", "西班牙·科尔多瓦": "Cordoba Spain", "西班牙·龙达": "Ronda Spain", "西班牙·圣塞巴斯蒂安": "San Sebastian Spain", "法国·圣米歇尔山": "Mont Saint-Michel France", "法国·卢瓦尔河谷": "Loire Valley France", "法国·马赛": "Marseille France", "德国·吕贝克": "Lubeck Germany", "德国·波茨坦": "Potsdam Germany", "瑞士·伯尔尼": "Bern Switzerland", "瑞士·洛桑": "Lausanne Switzerland", "荷兰·海牙": "The Hague Netherlands", "荷兰·乌特勒支": "Utrecht Netherlands", "比利时·布鲁塞尔": "Brussels Belgium", "奥地利·格拉茨": "Graz Austria", "希腊·德尔斐": "Delphi Greece", "希腊·塞萨洛尼基": "Thessaloniki Greece", "挪威·奥斯陆": "Oslo Norway", "英国·牛津": "Oxford England", "英国·剑桥": "Cambridge England", "波兰·格但斯克": "Gdansk Poland", "捷克·布尔诺": "Brno Czech Republic", "美国·亚特兰大": "Atlanta USA", "美国·波特兰": "Portland Oregon", "美国·丹佛": "Denver Colorado", "加拿大·渥太华": "Ottawa Canada", "加拿大·维多利亚": "Victoria Canada", "墨西哥·梅里达": "Merida Mexico", "巴西·萨尔瓦多": "Salvador Brazil", "阿根廷·门多萨": "Mendoza Argentina", "澳大利亚·堪培拉": "Canberra Australia", "新西兰·惠灵顿": "Wellington New Zealand", "南非·约翰内斯堡": "Johannesburg South Africa", "南非·花园大道": "Garden Route South Africa", "阿联酋·阿布扎比": "Abu Dhabi UAE", "沙特·利雅得": "Riyadh Saudi Arabia"};
 const CITY_PROVINCE = {"北京": "华北", "上海": "华东", "天津": "华北", "重庆": "重庆", "广州": "广东", "深圳": "广东", "珠海": "广东", "佛山": "广东", "东莞": "广东", "惠州": "广东", "中山": "广东", "江门": "广东", "湛江": "广东", "汕头": "广东", "潮州": "广东", "揭阳": "广东", "韶关": "广东", "清远": "广东", "肇庆": "广东", "梅州": "广东", "河源": "广东", "茂名": "广东", "阳江": "广东", "汕尾": "广东", "云浮": "广东", "顺德": "广东", "番禺": "广东", "从化": "广东", "增城": "广东", "杭州": "浙江", "宁波": "浙江", "温州": "浙江", "嘉兴": "浙江", "湖州": "浙江", "绍兴": "浙江", "金华": "浙江", "衢州": "浙江", "台州": "浙江", "丽水": "浙江", "舟山": "浙江", "义乌": "浙江", "南京": "江苏", "苏州": "江苏", "无锡": "江苏", "常州": "江苏", "南通": "江苏", "扬州": "江苏", "镇江": "江苏", "泰州": "江苏", "盐城": "江苏", "淮安": "江苏", "徐州": "江苏", "连云港": "江苏", "宿迁": "江苏", "合肥": "安徽", "芜湖": "安徽", "蚌埠": "安徽", "黄山": "安徽", "安庆": "安徽", "六安": "安徽", "阜阳": "安徽", "滁州": "安徽", "宣城": "安徽", "池州": "安徽", "马鞍山": "安徽", "铜陵": "安徽", "福州": "福建", "厦门": "福建", "泉州": "福建", "漳州": "福建", "莆田": "福建", "三明": "福建", "南平": "福建", "龙岩": "福建", "宁德": "福建", "南昌": "江西", "赣州": "江西", "九江": "江西", "上饶": "江西", "景德镇": "江西", "宜春": "江西", "吉安": "江西", "抚州": "江西", "萍乡": "江西", "鹰潭": "江西", "武汉": "湖北", "宜昌": "湖北", "襄阳": "湖北", "荆州": "湖北", "十堰": "湖北", "黄冈": "湖北", "恩施": "湖北", "咸宁": "湖北", "黄石": "湖北", "孝感": "湖北", "长沙": "湖南", "株洲": "湖南", "湘潭": "湖南", "衡阳": "湖南", "岳阳": "湖南", "常德": "湖南", "郴州": "湖南", "张家界": "湖南", "怀化": "湖南", "湘西": "湖南", "邵阳": "湖南", "永州": "湖南", "成都": "四川", "绵阳": "四川", "德阳": "四川", "南充": "四川", "宜宾": "四川", "泸州": "四川", "乐山": "四川", "眉山": "四川", "自贡": "四川", "内江": "四川", "达州": "四川", "雅安": "四川", "攀枝花": "四川", "西昌": "四川", "甘孜": "四川", "阿坝": "四川", "凉山": "四川", "广元": "四川", "贵阳": "贵州", "遵义": "贵州", "六盘水": "贵州", "安顺": "贵州", "毕节": "贵州", "铜仁": "贵州", "黔东南": "贵州", "黔南": "贵州", "黔西南": "贵州", "昆明": "云南", "曲靖": "云南", "玉溪": "云南", "大理": "云南", "丽江": "云南", "红河": "云南", "文山": "云南", "西双版纳": "云南", "德宏": "云南", "保山": "云南", "普洱": "云南", "临沧": "云南", "昭通": "云南", "楚雄": "云南", "迪庆": "云南", "怒江": "云南", "西安": "陕西", "宝鸡": "陕西", "咸阳": "陕西", "渭南": "陕西", "延安": "陕西", "汉中": "陕西", "榆林": "陕西", "安康": "陕西", "商洛": "陕西", "铜川": "陕西", "兰州": "甘肃", "天水": "甘肃", "酒泉": "甘肃", "嘉峪关": "甘肃", "张掖": "甘肃", "武威": "甘肃", "陇南": "甘肃", "敦煌": "甘肃", "甘南": "甘肃", "平凉": "甘肃", "西宁": "青海", "海东": "青海", "海西": "青海", "海北": "青海", "黄南": "青海", "果洛": "青海", "玉树": "青海", "银川": "宁夏", "中卫": "宁夏", "吴忠": "宁夏", "固原": "宁夏", "石嘴山": "宁夏", "乌鲁木齐": "新疆", "吐鲁番": "新疆", "喀什": "新疆", "伊犁": "新疆", "哈密": "新疆", "库尔勒": "新疆", "阿克苏": "新疆", "和田": "新疆", "昌吉": "新疆", "克拉玛依": "新疆", "拉萨": "西藏", "日喀则": "西藏", "林芝": "西藏", "昌都": "西藏", "山南": "西藏", "那曲": "西藏", "阿里": "西藏", "呼和浩特": "内蒙古", "包头": "内蒙古", "鄂尔多斯": "内蒙古", "呼伦贝尔": "内蒙古", "赤峰": "内蒙古", "通辽": "内蒙古", "锡林郭勒": "内蒙古", "乌兰察布": "内蒙古", "巴彦淖尔": "内蒙古", "阿拉善": "内蒙古", "兴安": "内蒙古", "石家庄": "河北", "唐山": "河北", "保定": "河北", "邯郸": "河北", "张家口": "河北", "承德": "河北", "秦皇岛": "河北", "廊坊": "河北", "沧州": "河北", "邢台": "河北", "衡水": "河北", "太原": "山西", "大同": "山西", "晋中": "山西", "临汾": "山西", "运城": "山西", "长治": "山西", "晋城": "山西", "忻州": "山西", "阳泉": "山西", "郑州": "河南", "洛阳": "河南", "开封": "河南", "新乡": "河南", "焦作": "河南", "安阳": "河南", "南阳": "河南", "信阳": "河南", "商丘": "河南", "周口": "河南", "驻马店": "河南", "平顶山": "河南", "许昌": "河南", "三门峡": "河南", "济南": "山东", "青岛": "山东", "烟台": "山东", "威海": "山东", "潍坊": "山东", "淄博": "山东", "临沂": "山东", "济宁": "山东", "泰安": "山东", "日照": "山东", "东营": "山东", "德州": "山东", "聊城": "山东", "菏泽": "山东", "枣庄": "山东", "滨州": "山东", "沈阳": "辽宁", "大连": "辽宁", "鞍山": "辽宁", "丹东": "辽宁", "锦州": "辽宁", "营口": "辽宁", "盘锦": "辽宁", "葫芦岛": "辽宁", "抚顺": "辽宁", "长春": "吉林", "吉林": "吉林", "延吉": "吉林", "四平": "吉林", "通化": "吉林", "白城": "吉林", "松原": "吉林", "白山": "吉林", "哈尔滨": "黑龙江", "齐齐哈尔": "黑龙江", "牡丹江": "黑龙江", "佳木斯": "黑龙江", "大庆": "黑龙江", "伊春": "黑龙江", "黑河": "黑龙江", "南宁": "广西", "柳州": "广西", "桂林": "广西", "北海": "广西", "钦州": "广西", "防城港": "广西", "玉林": "广西", "百色": "广西", "梧州": "广西", "贵港": "广西", "崇左": "广西", "贺州": "广西", "河池": "广西", "海口": "海南", "三亚": "海南", "儋州": "海南", "琼海": "海南", "文昌": "海南", "万宁": "海南", "陵水": "海南", "五指山": "海南", "香港": "港澳", "澳门": "港澳", "台北": "台湾", "台中": "台湾", "高雄": "台湾"};
 const PROVINCE_ADJACENT = {"北京": ["河北", "天津"], "华北": ["河北", "天津", "北京"], "天津": ["北京", "河北"], "上海": ["江苏", "浙江"], "华东": ["江苏", "浙江", "上海"], "重庆": ["四川", "湖北", "湖南", "贵州", "陕西"], "河北": ["北京", "天津", "山西", "内蒙古", "辽宁", "山东", "河南"], "山西": ["河北", "内蒙古", "陕西", "河南"], "内蒙古": ["河北", "山西", "陕西", "宁夏", "甘肃", "黑龙江", "吉林", "辽宁"], "辽宁": ["吉林", "内蒙古", "河北"], "吉林": ["黑龙江", "内蒙古", "辽宁"], "黑龙江": ["吉林", "内蒙古"], "江苏": ["上海", "浙江", "安徽", "山东"], "浙江": ["上海", "江苏", "安徽", "江西", "福建"], "安徽": ["江苏", "浙江", "江西", "湖北", "河南", "山东"], "福建": ["浙江", "江西", "广东"], "江西": ["安徽", "浙江", "福建", "广东", "湖南", "湖北"], "山东": ["河北", "河南", "安徽", "江苏"], "河南": ["河北", "山西", "陕西", "湖北", "安徽", "山东"], "湖北": ["河南", "安徽", "江西", "湖南", "重庆", "陕西"], "湖南": ["湖北", "江西", "广东", "广西", "贵州", "重庆"], "广东": ["福建", "江西", "湖南", "广西", "海南", "港澳"], "广西": ["广东", "湖南", "贵州", "云南"], "海南": ["广东"], "四川": ["重庆", "贵州", "云南", "西藏", "青海", "甘肃", "陕西"], "贵州": ["四川", "重庆", "湖南", "广西", "云南"], "云南": ["四川", "贵州", "广西", "西藏"], "西藏": ["新疆", "青海", "四川", "云南"], "陕西": ["山西", "河南", "湖北", "重庆", "四川", "甘肃", "宁夏", "内蒙古"], "甘肃": ["内蒙古", "宁夏", "陕西", "四川", "青海", "新疆"], "青海": ["甘肃", "四川", "西藏", "新疆"], "宁夏": ["内蒙古", "陕西", "甘肃"], "新疆": ["甘肃", "青海", "西藏"], "港澳": ["广东"], "台湾": []};
+const PROVINCE_CENTER = {"北京": [39.9, 116.4], "上海": [31.2, 121.5], "天津": [39.1, 117.2], "重庆": [29.6, 106.5], "河北": [38.0, 114.5], "山西": [37.9, 112.5], "内蒙古": [40.8, 111.7], "辽宁": [41.8, 123.4], "吉林": [43.9, 125.3], "黑龙江": [45.8, 126.6], "江苏": [32.1, 118.8], "浙江": [30.3, 120.2], "安徽": [31.9, 117.3], "福建": [26.1, 119.3], "江西": [28.7, 115.9], "山东": [36.7, 117.0], "河南": [34.8, 113.6], "湖北": [30.6, 114.3], "湖南": [28.2, 112.9], "广东": [23.1, 113.3], "广西": [22.8, 108.3], "海南": [19.2, 109.8], "四川": [30.7, 104.1], "贵州": [26.6, 106.7], "云南": [25.0, 102.7], "西藏": [29.6, 91.1], "陕西": [34.3, 108.9], "甘肃": [36.1, 103.8], "青海": [36.6, 101.8], "宁夏": [38.5, 106.2], "新疆": [43.8, 87.6], "台湾": [23.7, 121.0], "香港": [22.3, 114.2], "澳门": [22.2, 113.5], "港澳": [22.3, 114.2], "华北": [39.9, 116.4], "华东": [31.2, 121.5]};
+const COUNTRY_CENTER = {"日本": [36.2, 138.3], "韩国": [36.5, 127.9], "泰国": [15.9, 100.0], "越南": [14.1, 108.3], "印尼": [-2.5, 118.0], "马来西亚": [4.2, 101.9], "新加坡": [1.35, 103.8], "菲律宾": [12.9, 121.8], "柬埔寨": [12.6, 104.9], "老挝": [19.9, 102.5], "缅甸": [21.9, 95.9], "尼泊尔": [28.4, 84.1], "斯里兰卡": [7.9, 80.8], "蒙古": [46.9, 103.8], "沙特": [23.9, 45.1], "阿曼": [21.5, 55.9], "巴林": [26.1, 50.6], "吉尔吉斯斯坦": [41.2, 74.8], "哈萨克斯坦": [48.0, 66.9], "乌兹别克斯坦": [41.4, 64.6], "塔吉克斯坦": [38.9, 71.3], "格鲁吉亚": [42.3, 43.4], "阿塞拜疆": [40.1, 47.6], "土耳其": [38.9, 35.2], "阿联酋": [23.4, 53.8], "卡塔尔": [25.3, 51.2], "约旦": [30.6, 36.2], "塞浦路斯": [35.1, 33.4], "埃及": [26.8, 30.8], "摩洛哥": [31.8, -7.1], "突尼斯": [33.9, 9.5], "肯尼亚": [-0.0, 37.9], "坦桑尼亚": [-6.4, 34.9], "南非": [-30.6, 22.9], "纳米比亚": [-22.6, 17.1], "毛里求斯": [-20.2, 57.6], "塞舌尔": [-4.6, 55.5], "马达加斯加": [-18.8, 46.9], "埃塞俄比亚": [9.1, 40.5], "乌干达": [1.4, 32.3], "卢旺达": [-1.9, 29.9], "塞内加尔": [14.5, -14.5], "佛得角": [16.0, -24.0], "博茨瓦纳": [-22.3, 24.7], "莫桑比克": [-18.7, 35.5], "阿尔及利亚": [28.0, 1.7], "斯威士兰": [-26.5, 31.5], "莱索托": [-29.6, 28.2], "加纳": [7.9, -1.0], "津巴布韦": [-19.0, 29.2], "马尔代夫": [3.2, 73.2], "澳大利亚": [-25.3, 133.8], "新西兰": [-41.0, 174.9], "斐济": [-17.7, 178.1], "瓦努阿图": [-15.4, 166.9], "新喀里多尼亚": [-20.9, 165.6], "库克群岛": [-21.2, -159.8], "萨摩亚": [-13.8, -172.1], "汤加": [-21.2, -175.2], "关岛": [13.4, 144.8], "塞班": [15.2, 145.8], "美国": [39.8, -98.6], "加拿大": [56.1, -106.3], "墨西哥": [23.6, -102.6], "古巴": [21.5, -77.8], "秘鲁": [-9.2, -75.0], "巴西": [-14.2, -51.9], "阿根廷": [-38.4, -63.6], "智利": [-35.7, -71.5], "玻利维亚": [-16.3, -63.6], "哥伦比亚": [4.6, -74.3], "厄瓜多尔": [-1.8, -78.2], "哥斯达黎加": [9.7, -83.8], "巴哈马": [25.0, -77.4], "牙买加": [18.1, -77.3], "圣卢西亚": [13.9, -61.0], "乌拉圭": [-32.5, -55.8], "巴拿马": [8.5, -80.8], "波多黎各": [18.2, -66.6], "百慕大": [32.3, -64.8], "危地马拉": [15.8, -90.2], "多米尼加": [18.7, -70.2], "意大利": [41.9, 12.6], "法国": [46.2, 2.2], "瑞士": [46.8, 8.2], "西班牙": [40.5, -3.7], "葡萄牙": [39.4, -8.2], "希腊": [39.1, 21.8], "冰岛": [64.9, -19.0], "挪威": [60.5, 8.5], "芬兰": [61.9, 25.7], "丹麦": [56.3, 9.5], "荷兰": [52.1, 5.3], "英国": [55.4, -3.4], "爱尔兰": [53.1, -8.2], "德国": [51.2, 10.5], "奥地利": [47.6, 14.1], "捷克": [49.8, 15.5], "匈牙利": [47.2, 19.5], "波兰": [51.9, 19.1], "比利时": [50.5, 4.5], "克罗地亚": [45.1, 15.2], "塞尔维亚": [44.2, 20.9], "阿尔巴尼亚": [41.2, 20.2], "黑山": [42.8, 19.3], "斯洛文尼亚": [46.2, 15.0], "斯洛伐克": [48.7, 19.7], "保加利亚": [42.7, 25.5], "罗马尼亚": [45.9, 25.0], "马耳他": [35.9, 14.4], "卢森堡": [49.8, 6.1], "摩纳哥": [43.7, 7.4], "安道尔": [42.5, 1.5], "列支敦士登": [47.2, 9.6], "拉脱维亚": [56.9, 24.6], "立陶宛": [55.2, 23.9], "爱沙尼亚": [58.6, 25.0], "法罗群岛": [61.9, -7.0]};
+const CITY_CENTER = {"北京": [39.9, 116.4], "上海": [31.23, 121.47], "广州": [23.13, 113.26], "深圳": [22.54, 114.06], "天津": [39.13, 117.2], "重庆": [29.56, 106.55], "成都": [30.57, 104.07], "杭州": [30.27, 120.15], "南京": [32.06, 118.8], "武汉": [30.59, 114.3], "西安": [34.34, 108.94], "长沙": [28.23, 112.94], "郑州": [34.75, 113.62], "济南": [36.65, 117.12], "青岛": [36.07, 120.38], "沈阳": [41.8, 123.43], "大连": [38.91, 121.6], "长春": [43.88, 125.32], "哈尔滨": [45.8, 126.53], "昆明": [25.04, 102.72], "贵阳": [26.65, 106.63], "南宁": [22.82, 108.32], "海口": [20.04, 110.32], "三亚": [18.25, 109.51], "福州": [26.07, 119.3], "厦门": [24.48, 118.09], "南昌": [28.68, 115.86], "合肥": [31.82, 117.23], "太原": [37.87, 112.55], "石家庄": [38.04, 114.51], "呼和浩特": [40.84, 111.75], "兰州": [36.06, 103.83], "西宁": [36.62, 101.78], "银川": [38.49, 106.23], "乌鲁木齐": [43.83, 87.62], "拉萨": [29.65, 91.14], "香港": [22.32, 114.17], "澳门": [22.2, 113.54], "台北": [25.03, 121.57], "苏州": [31.3, 120.58], "无锡": [31.49, 120.31], "宁波": [29.87, 121.55], "温州": [27.99, 120.7], "佛山": [23.02, 113.12], "东莞": [23.02, 113.75], "珠海": [22.27, 113.58], "中山": [22.52, 113.39], "惠州": [23.11, 114.42], "汕头": [23.35, 116.68], "泉州": [24.87, 118.68], "烟台": [37.46, 121.45], "威海": [37.51, 122.12], "徐州": [34.26, 117.19], "常州": [31.81, 119.97], "南通": [31.98, 120.89], "扬州": [32.39, 119.41], "绍兴": [30.0, 120.58], "嘉兴": [30.75, 120.76], "金华": [29.08, 119.65], "桂林": [25.27, 110.29], "柳州": [24.31, 109.41], "北海": [21.48, 109.12], "洛阳": [34.62, 112.45], "开封": [34.8, 114.31], "秦皇岛": [39.94, 119.6], "承德": [40.95, 117.94], "大同": [40.08, 113.3], "延安": [36.59, 109.49], "敦煌": [40.14, 94.66], "张家界": [29.13, 110.48], "宜昌": [30.69, 111.29], "襄阳": [32.04, 112.14], "九江": [29.71, 116.0], "景德镇": [29.27, 117.18], "黄山": [29.71, 118.31], "武夷山": [27.76, 118.03], "大理": [25.61, 100.27], "丽江": [26.86, 100.23], "香格里拉": [27.83, 99.7], "西双版纳": [22.0, 100.8], "腾冲": [25.02, 98.49], "遵义": [27.73, 106.93], "安顺": [26.25, 105.93], "荔波": [25.41, 107.88], "阳朔": [24.78, 110.49], "张掖": [38.93, 100.45], "嘉峪关": [39.77, 98.29], "吐鲁番": [42.95, 89.19], "喀什": [39.47, 75.99], "伊宁": [43.92, 81.32], "阿勒泰": [47.85, 88.14], "漠河": [52.97, 122.54], "满洲里": [49.6, 117.43], "呼伦贝尔": [49.21, 119.77], "锡林浩特": [43.93, 116.09], "赤峰": [42.26, 118.89], "通辽": [43.65, 122.24], "丹东": [40.13, 124.35], "延吉": [42.89, 129.51], "牡丹江": [44.55, 129.63], "齐齐哈尔": [47.35, 123.92], "佳木斯": [46.8, 130.32], "连云港": [34.6, 119.22], "盐城": [33.35, 120.16], "泰州": [32.46, 119.92], "镇江": [32.19, 119.43], "湖州": [30.89, 120.09], "衢州": [28.94, 118.87], "丽水": [28.45, 119.92], "台州": [28.66, 121.42], "舟山": [29.99, 122.21], "莆田": [25.45, 119.01], "漳州": [24.51, 117.65], "龙岩": [25.08, 117.02], "三明": [26.26, 117.64], "南平": [26.64, 118.18], "赣州": [25.83, 114.93], "上饶": [28.45, 117.94], "宜春": [27.81, 114.42], "吉安": [27.11, 114.99], "抚州": [27.95, 116.36], "萍乡": [27.62, 113.85], "新余": [27.82, 114.92], "鹰潭": [28.26, 117.07], "宁德": [26.66, 119.55], "潮州": [23.66, 116.62], "揭阳": [23.55, 116.37], "汕尾": [22.79, 115.37], "阳江": [21.86, 111.98], "湛江": [21.27, 110.36], "茂名": [21.66, 110.93], "肇庆": [23.05, 112.47], "江门": [22.58, 113.08], "清远": [23.68, 113.03], "韶关": [24.81, 113.6], "梅州": [24.3, 116.12], "河源": [23.74, 114.7], "云浮": [22.93, 112.04], "淄博": [36.81, 118.06], "潍坊": [36.71, 119.16], "临沂": [35.1, 118.35], "济宁": [35.41, 116.59], "泰安": [36.2, 117.09], "德州": [37.45, 116.36], "聊城": [36.46, 115.99], "滨州": [37.38, 117.97], "东营": [37.43, 118.67], "日照": [35.42, 119.53], "枣庄": [34.81, 117.32], "菏泽": [35.23, 115.48]};
+const FESTIVALS = [{"name": "哈尔滨冰雪大世界", "months": [12, 1, 2], "area": "黑龙江", "desc": "巨型冰雕夜景，国内最出名的冬季冰雪节"}, {"name": "查干湖冬捕", "months": [12, 1], "area": "吉林", "desc": "千年渔猎仪式，冬捕头鱼拍卖"}, {"name": "札幌雪祭", "months": [2], "area": "日本", "desc": "世界级雪雕展，北海道冬季招牌"}, {"name": "西安城墙新春灯会", "months": [1, 2], "area": "陕西", "desc": "城墙上的大型灯会，年味浓"}, {"name": "平遥中国年", "months": [1, 2], "area": "山西", "desc": "古城社火、民俗巡游"}, {"name": "自贡灯会", "months": [1, 2], "area": "四川", "desc": "彩灯之乡的国家级灯会"}, {"name": "威尼斯狂欢节", "months": [2], "area": "意大利", "desc": "面具与华服的水城狂欢"}, {"name": "巴西里约狂欢节", "months": [2], "area": "巴西", "desc": "桑巴游行，世界最大狂欢节"}, {"name": "京都樱花季", "months": [3, 4], "area": "日本", "desc": "哲学之道、岚山一带的樱花名所"}, {"name": "林芝桃花节", "months": [3, 4], "area": "西藏", "desc": "雪山下的野生桃林，西藏春天名片"}, {"name": "婺源油菜花", "months": [3], "area": "江西", "desc": "江岭梯田花海，徽派村落点缀"}, {"name": "罗平油菜花海", "months": [2, 3], "area": "云南", "desc": "喀斯特峰林间的金色花海"}, {"name": "扬州烟花三月", "months": [4], "area": "江苏", "desc": "瘦西湖春色，'烟花三月下扬州'"}, {"name": "洛阳牡丹花会", "months": [4], "area": "河南", "desc": "牡丹盛开，王城公园最集中"}, {"name": "西双版纳泼水节", "months": [4], "area": "云南", "desc": "傣历新年，4 月中旬全城泼水"}, {"name": "云南大理三月街", "months": [3, 4], "area": "云南", "desc": "白族传统集市与赛马"}, {"name": "荷兰郁金香季", "months": [4], "area": "荷兰", "desc": "库肯霍夫公园花海"}, {"name": "日本花火大会", "months": [7, 8], "area": "日本", "desc": "夏季各地花火大会（如隅田川）"}, {"name": "青海湖油菜花", "months": [7], "area": "青海", "desc": "环湖金色花田，7 月最盛"}, {"name": "呼伦贝尔那达慕", "months": [7, 8], "area": "内蒙古", "desc": "草原盛会：赛马、摔跤、射箭"}, {"name": "新疆伊犁薰衣草", "months": [6], "area": "新疆", "desc": "霍城薰衣草田，6 月最盛"}, {"name": "普罗旺斯薰衣草", "months": [6, 7], "area": "法国", "desc": "瓦朗索勒高原紫色花海"}, {"name": "青岛国际啤酒节", "months": [8], "area": "山东", "desc": "啤酒与海鲜的夏日狂欢"}, {"name": "青森睡魔祭", "months": [8], "area": "日本", "desc": "巨型灯笼花车巡游（东北三大祭）"}, {"name": "拉萨雪顿节", "months": [8], "area": "西藏", "desc": "藏戏与晒佛，酸奶节"}, {"name": "火把节", "months": [7, 8], "area": "云南", "desc": "彝族白族传统节日，篝火狂欢"}, {"name": "慕尼黑啤酒节", "months": [9, 10], "area": "德国", "desc": "世界最大啤酒节（9 月下旬开幕）"}, {"name": "喀纳斯秋色", "months": [9, 10], "area": "新疆", "desc": "白桦金黄、湖水碧蓝，秋季限定"}, {"name": "九寨沟秋色", "months": [10], "area": "四川", "desc": "彩林倒映海子，10 月最美"}, {"name": "额济纳胡杨林", "months": [10], "area": "内蒙古", "desc": "金色胡杨，10 月中上旬最佳"}, {"name": "婺源晒秋", "months": [10, 11], "area": "江西", "desc": "篁岭晒秋，红辣椒与皇菊"}, {"name": "腾冲银杏村", "months": [11], "area": "云南", "desc": "满村金黄银杏，11 月下旬最佳"}, {"name": "京都红叶季", "months": [11], "area": "日本", "desc": "东福寺、永观堂红叶名所"}, {"name": "墨西哥亡灵节", "months": [11], "area": "墨西哥", "desc": "万寿菊与骷髅装饰的独特节日"}, {"name": "清迈水灯节", "months": [11], "area": "泰国", "desc": "天灯与河灯，泰北最浪漫的节"}, {"name": "欧洲圣诞市集", "months": [11, 12], "area": "欧洲", "desc": "德奥法捷等地圣诞市集"}, {"name": "泰国宋干节", "months": [4], "area": "泰国", "desc": "泼水节，全国狂欢"}, {"name": "韩国樱花季", "months": [4], "area": "韩国", "desc": "镇海军港节、首尔汝矣岛"}, {"name": "台湾灯会", "months": [2], "area": "台湾", "desc": "元宵灯会，每年主灯不同"}];
+const PACKING_BASE = ["身份证 / 护照 + 签证（出国必带）", "手机 + 充电器 + 充电线", "充电宝（≤100Wh，必须随身）", "现金 + 银行卡 / 信用卡", "常用药：感冒药、肠胃药、晕车药、创可贴", "洗漱用品 + 毛巾 + 牙具", "换洗衣物（按天数准备）", "雨伞 / 雨衣", "纸巾 + 湿巾 + 口罩"];
+const PACKING_RULES = [["雪", "寒冷/雪天", ["羽绒服或厚外套", "保暖内衣", "雪地靴/防滑鞋", "暖宝宝", "手套 + 围巾 + 帽子"]], ["温暖", "温暖气候", ["短袖 + 薄外套", "高倍防晒霜", "驱蚊液", "太阳镜"]], ["海滨沙滩", "海边玩水", ["泳衣", "人字拖", "沙滩巾", "防水手机袋", "晒后修复"]], ["徒步登山", "徒步登山", ["登山鞋", "冲锋衣", "登山杖", "头灯", "水壶/水袋", "能量棒"]], ["滑雪", "滑雪", ["滑雪镜", "滑雪手套", "保暖内衣", "护脸"]], ["温泉", "泡温泉", ["洗漱包 + 浴巾（部分温泉不提供）", "防水袋"]], ["主题乐园", "主题乐园", ["舒适运动鞋", "防晒", "一次性雨衣"]], ["国外", "出国", ["护照复印件 + 电子版", "转换插头", "境外流量卡 / eSIM", "旅行保险单", "Visa/Master 信用卡"]], ["家庭(带小孩)", "带小孩", ["儿童常用药", "零食", "湿巾", "小玩具/绘本"]], ["家庭(带老人)", "带老人", ["老人常用药", "折叠手杖", "保温杯", "血压计（按需）"]], ["长线", "7 天以上长线", ["洗衣袋", "备用鞋", "折叠衣架"]]];
+const PLUG_MEANING = {"A": "两扁脚（美标，无接地）", "B": "两扁 + 圆脚（美标，带接地）", "C": "两圆脚（欧标）", "D": "三圆脚（印度标）", "E": "两圆 + 接地（法/比标）", "F": "两圆（德标，兼容 C）", "G": "三方脚（英标）", "I": "八字脚（澳标）", "J": "三圆脚（瑞士标）", "K": "两圆（丹麦标）", "L": "三扁脚（意标）", "M": "三圆脚（南非标）", "N": "两圆（巴西标）"};
+const COUNTRY_TIPS = {"日本": ["JPY ¥", "A/B", "100V", "UTC+9", "110 警察 / 119 急救", "无小费习惯", "Google Maps / Suica / Japan Travel"], "韩国": ["KRW ₩", "C/F", "220V", "UTC+9", "112 警察 / 119 急救", "无小费习惯", "KakaoMap / Naver Map / T-money"], "泰国": ["THB ฿", "A/B/C", "220V", "UTC+7", "191 警察 / 1155 旅游警察", "小费常见（20-100 THB）", "Grab / Google Maps"], "越南": ["VND ₫", "A/C", "220V", "UTC+7", "113 警察 / 115 急救", "小费不强制", "Grab / Google Maps"], "印尼": ["IDR Rp", "C/F", "230V", "UTC+8（巴厘岛）", "110 警察 / 118 急救", "小费常见", "Grab / Gojek / Google Maps"], "马来西亚": ["MYR RM", "G", "240V", "UTC+8", "999", "小费不强制", "Grab / Google Maps"], "新加坡": ["SGD S$", "G", "230V", "UTC+8", "999", "不强制（多含 10% 服务费）", "Grab / Google Maps"], "菲律宾": ["PHP ₱", "A/B", "220V", "UTC+8", "911", "小费常见", "Grab / Google Maps"], "柬埔寨": ["USD / KHR", "A/C", "230V", "UTC+7", "117", "小费常见", "Grab / PassApp"], "老挝": ["LAK ₭", "A/B/C", "230V", "UTC+7", "1191", "小费不强制", "Google Maps"], "缅甸": ["MMK K", "A/C/D", "230V", "UTC+6:30", "199", "小费常见", "Grab / Google Maps"], "尼泊尔": ["NPR Rs", "C/D", "230V", "UTC+5:45", "100 警察 / 102 急救", "小费常见", "Pathao / Google Maps"], "斯里兰卡": ["LKR Rs", "D", "230V", "UTC+5:30", "119", "小费常见", "PickMe / Google Maps"], "马尔代夫": ["MVR / USD", "G", "230V", "UTC+5", "119", "小费常见（美元）", "Google Maps"], "蒙古": ["MNT ₮", "C/E", "220V", "UTC+8", "101 警察 / 103 急救", "小费不强制", "Google Maps"], "沙特": ["SAR ﷼", "G", "230V", "UTC+3", "999 / 997 急救", "小费 10%", "Careem / Google Maps"], "阿曼": ["OMR ﷼", "G", "240V", "UTC+4", "9999", "小费 10%", "Otaxi / Google Maps"], "巴林": ["BHD", "G", "230V", "UTC+3", "999", "小费 10%", "Careem"], "吉尔吉斯斯坦": ["KGS сом", "C/F", "220V", "UTC+6", "102 警察 / 103 急救", "小费不强制", "Yandex Go / 2GIS"], "哈萨克斯坦": ["KZT ₸", "C/F", "220V", "UTC+5（阿拉木图）", "102 警察 / 103 急救", "小费 10%", "Yandex Go / 2GIS"], "乌兹别克斯坦": ["UZS сўм", "C/F", "220V", "UTC+5", "102 警察 / 103 急救", "小费不强制", "Yandex Go"], "塔吉克斯坦": ["TJS", "C/F", "220V", "UTC+5", "102 警察 / 103 急救", "小费不强制", "Yandex Go"], "格鲁吉亚": ["GEL ₾", "C/F", "220V", "UTC+4", "112", "小费 10%", "Yandex Go / Bolt"], "阿塞拜疆": ["AZN ₼", "C/F", "220V", "UTC+4", "102 警察 / 103 急救", "小费 10%", "Bolt"], "土耳其": ["TRY ₺", "C/F", "220V", "UTC+3", "112", "小费 5-10%", "BiTaksi / Google Maps"], "阿联酋": ["AED د.إ", "G", "230V", "UTC+4", "999 警察 / 998 急救", "小费 10%", "Careem / Google Maps"], "卡塔尔": ["QAR ﷼", "G", "240V", "UTC+3", "999", "小费 10%", "Careem"], "约旦": ["JOD د.ا", "C/D/G", "230V", "UTC+3", "911", "小费 10%", "Careem / Google Maps"], "塞浦路斯": ["EUR €", "G", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Bolt / Google Maps"], "埃及": ["EGP £", "C/F", "220V", "UTC+2", "122 警察 / 123 急救", "小费常见", "Uber / Careem"], "摩洛哥": ["MAD د.م", "C/E", "220V", "UTC+1", "19 警察 / 15 急救", "小费常见", "Careem / Google Maps"], "突尼斯": ["TND د.ت", "C/E", "230V", "UTC+1", "197 警察 / 190 急救", "小费常见", "Bolt"], "肯尼亚": ["KES KSh", "G", "240V", "UTC+3", "999 / 112", "小费 10%", "Uber / Bolt"], "坦桑尼亚": ["TZS TSh", "D/G", "230V", "UTC+3", "112 警察 / 110 急救", "小费 10%", "Bolt"], "南非": ["ZAR R", "M/N", "230V", "UTC+2", "10111 警察 / 10177 急救", "小费 10-15%", "Uber / Bolt"], "纳米比亚": ["NAD N$", "D/M", "220V", "UTC+2", "10111", "小费 10%", "Uber / 租车自驾"], "毛里求斯": ["MUR Rs", "C/G", "230V", "UTC+4", "999 / 114 急救", "小费 10%", "Uber / Google Maps"], "塞舌尔": ["SCR Rs", "G", "240V", "UTC+4", "999", "小费 10%", "租车自驾"], "澳大利亚": ["AUD A$", "I", "230V", "UTC+8 / +10（东部）", "000", "小费不强制", "Uber / Google Maps"], "新西兰": ["NZD NZ$", "I", "230V", "UTC+12", "111", "小费不强制", "Uber / Google Maps"], "斐济": ["FJD FJ$", "I", "240V", "UTC+12", "911", "小费不强制", "Google Maps"], "美国": ["USD $", "A/B", "120V", "UTC-5 至 -10", "911", "小费 15-20%（必须）", "Google Maps / Uber / Lyft"], "加拿大": ["CAD C$", "A/B", "120V", "UTC-3:30 至 -8", "911", "小费 15-20%", "Google Maps / Uber"], "墨西哥": ["MXN $", "A/B", "127V", "UTC-6 至 -8", "911", "小费 10-15%", "Uber / DiDi / Google Maps"], "古巴": ["CUP $", "A/B/C", "110V", "UTC-5", "106 警察 / 104 急救", "小费常见", "Google Maps（离线）"], "秘鲁": ["PEN S/", "A/C", "220V", "UTC-5", "105 警察 / 116 急救", "小费 10%", "Uber / Google Maps"], "巴西": ["BRL R$", "N", "127V", "UTC-3", "190 警察 / 192 急救", "小费 10%", "Uber / 99"], "阿根廷": ["ARS $", "I", "220V", "UTC-3", "911", "小费 10%", "Uber / Cabify"], "智利": ["CLP $", "L", "220V", "UTC-4", "133 警察 / 131 急救", "小费 10%", "Uber / Cabify"], "玻利维亚": ["BOB Bs", "A/C", "230V", "UTC-4", "110 警察 / 118 急救", "小费常见", "Google Maps"], "哥伦比亚": ["COP $", "A/B", "110V", "UTC-5", "123 警察 / 119 急救", "小费 10%", "Uber / DiDi"], "厄瓜多尔": ["USD $", "A/B", "120V", "UTC-5", "911", "小费 10%", "Uber / DiDi"], "哥斯达黎加": ["CRC ₡", "A/B", "120V", "UTC-6", "911", "小费 10%", "Uber / DiDi"], "巴哈马": ["BSD B$", "A/B", "120V", "UTC-5", "911 / 919", "小费 15%", "Google Maps"], "牙买加": ["JMD J$", "A/B", "110V", "UTC-5", "119 / 110", "小费 10-15%", "Google Maps"], "圣卢西亚": ["XCD EC$", "G", "240V", "UTC-4", "999", "小费 10%", "Google Maps"], "乌拉圭": ["UYU $U", "C/F/I", "220V", "UTC-3", "911", "小费 10%", "Uber / Cabify"], "巴拿马": ["PAB B/.", "A/B", "120V", "UTC-5", "911", "小费 10%", "Uber"], "波多黎各": ["USD $", "A/B", "120V", "UTC-4", "911", "小费 15%", "Uber"], "百慕大": ["BMD B$", "A/B", "120V", "UTC-4", "911", "小费 15%", "Google Maps"], "危地马拉": ["GTQ Q", "A/B", "120V", "UTC-6", "110 / 122", "小费 10%", "Uber / Google Maps"], "多米尼加": ["DOP RD$", "A/B", "110V", "UTC-4", "911", "小费 10-15%", "Uber"], "意大利": ["EUR €", "L/C/F", "230V", "UTC+1（夏令时 +2）", "112 / 113", "小费不强制（可留零钱）", "Google Maps / Trenitalia"], "法国": ["EUR €", "C/E", "230V", "UTC+1（夏令时 +2）", "112 / 17", "账单已含服务费", "Google Maps / SNCF"], "瑞士": ["CHF Fr", "J", "230V", "UTC+1（夏令时 +2）", "112 / 117", "小费不强制", "Google Maps / SBB"], "西班牙": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps / Renfe"], "葡萄牙": ["EUR €", "C/F", "230V", "UTC+0（夏令时 +1）", "112", "小费不强制", "Google Maps"], "希腊": ["EUR €", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费不强制", "Google Maps"], "冰岛": ["ISK kr", "C/F", "230V", "UTC+0", "112", "小费不强制", "Google Maps / Straeto"], "挪威": ["NOK kr", "C/F", "230V", "UTC+1（夏令时 +2）", "112 / 113", "小费不强制", "Google Maps / Vy"], "芬兰": ["EUR €", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费不强制", "Google Maps / VR"], "丹麦": ["DKK kr", "C/F/K", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps / DSB"], "荷兰": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps / NS"], "英国": ["GBP £", "G", "230V", "UTC+0（夏令时 +1）", "999 / 112", "小费 10%（餐厅）", "Google Maps / Citymapper"], "爱尔兰": ["EUR €", "G", "230V", "UTC+0（夏令时 +1）", "112 / 999", "小费 10%", "Google Maps"], "德国": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费 5-10%", "Google Maps / DB Navigator"], "奥地利": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费 5-10%", "Google Maps / ÖBB"], "捷克": ["CZK Kč", "C/E", "230V", "UTC+1（夏令时 +2）", "112", "小费 5-10%", "Google Maps / IDOS"], "匈牙利": ["HUF Ft", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费 10%", "Google Maps"], "波兰": ["PLN zł", "C/E", "230V", "UTC+1（夏令时 +2）", "112", "小费 10%", "Google Maps / PKP"], "比利时": ["EUR €", "C/E", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps / SNCB"], "克罗地亚": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费 10%", "Google Maps"], "塞尔维亚": ["RSD дин", "C/F", "230V", "UTC+1（夏令时 +2）", "192 警察 / 194 急救", "小费 10%", "Google Maps"], "阿尔巴尼亚": ["ALL L", "C/F", "230V", "UTC+1（夏令时 +2）", "129 警察 / 127 急救", "小费 10%", "Google Maps"], "黑山": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "122 警察 / 124 急救", "小费 10%", "Google Maps"], "斯洛文尼亚": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps"], "斯洛伐克": ["EUR €", "C/E", "230V", "UTC+1（夏令时 +2）", "112", "小费 10%", "Google Maps"], "保加利亚": ["BGN лв", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Google Maps"], "罗马尼亚": ["RON lei", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Google Maps"], "马耳他": ["EUR €", "G", "230V", "UTC+1（夏令时 +2）", "112", "小费 10%", "Google Maps"], "卢森堡": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps"], "摩纳哥": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112 / 17", "小费不强制", "Google Maps"], "安道尔": ["EUR €", "C/F", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps"], "列支敦士登": ["CHF Fr", "J", "230V", "UTC+1（夏令时 +2）", "112", "小费不强制", "Google Maps"], "拉脱维亚": ["EUR €", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Google Maps"], "立陶宛": ["EUR €", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Google Maps"], "爱沙尼亚": ["EUR €", "C/F", "230V", "UTC+2（夏令时 +3）", "112", "小费 10%", "Google Maps"], "法罗群岛": ["DKK kr", "C/F/K", "230V", "UTC+0（夏令时 +1）", "112", "小费不强制", "Google Maps"]};
+const REGION_TIPS = {"欧洲": ["EUR €", "C/F", "230V", "UTC+1 左右", "112", "小费 5-10%", "Google Maps"], "美洲": ["USD $", "A/B", "120V", "UTC-5 左右", "911", "小费 10-15%", "Google Maps / Uber"], "非洲": ["USD $", "C/F", "220V", "UTC+0 至 +3", "112", "小费常见", "Google Maps"], "大洋洲": ["AUD A$", "I", "230V", "UTC+8 至 +12", "000", "小费不强制", "Google Maps"], "中东": ["USD $", "G", "230V", "UTC+3 左右", "999", "小费 10%", "Careem / Google Maps"], "东南亚": ["USD $", "A/C", "220V", "UTC+7 左右", "112", "小费常见", "Grab / Google Maps"], "南亚": ["USD $", "C/D", "230V", "UTC+5:30 左右", "112", "小费常见", "Google Maps"], "中亚": ["USD $", "C/F", "220V", "UTC+5 左右", "112", "小费不强制", "Yandex Go"], "东亚": ["JPY ¥", "A/B", "100V", "UTC+9", "110", "无小费习惯", "Google Maps"], "高加索": ["USD $", "C/F", "220V", "UTC+4", "112", "小费 10%", "Bolt / Yandex Go"], "印度洋": ["USD $", "G", "230V", "UTC+5", "999", "小费常见", "Google Maps"], "国内": ["CNY ¥", "A/I", "220V", "UTC+8", "110 / 120", "无小费习惯", "高德地图 / 12306"]};
+const TRANSPORT_TABLE = {};
 
 function provinceOf(city){
   return CITY_PROVINCE[(city || "").trim()] || "";
@@ -86,6 +214,1007 @@ function provinceOf(city){
 
 function weekendRegions(province){
   return new Set([province].concat(PROVINCE_ADJACENT[province] || []));
+}
+
+/* ================= 需求理解：从备注里识别"想去哪" ================= */
+// 国家 / 地区关键词 → 过滤条件（region 与知识库的 region 字段对齐）
+const INTENT_MAP = {
+  // —— 国外国家 ——
+  "日本": {country:"国外", region:"日本"}, "韩国": {country:"国外", region:"韩国"},
+  "泰国": {country:"国外", region:"泰国"}, "越南": {country:"国外", region:"越南"},
+  "印尼": {country:"国外", region:"印尼"}, "印度尼西亚": {country:"国外", region:"印尼"},
+  "马来西亚": {country:"国外", region:"马来西亚"}, "新加坡": {country:"国外", prefixes:["新加坡"]},
+  "菲律宾": {country:"国外", region:"菲律宾"}, "柬埔寨": {country:"国外", region:"柬埔寨"},
+  "老挝": {country:"国外", region:"老挝"}, "缅甸": {country:"国外", region:"缅甸"},
+  "尼泊尔": {country:"国外", region:"尼泊尔"}, "斯里兰卡": {country:"国外", region:"斯里兰卡"},
+  "蒙古": {country:"国外", region:"蒙古"}, "沙特": {country:"国外", region:"沙特"},
+  "阿曼": {country:"国外", region:"阿曼"}, "巴林": {country:"国外", prefixes:["巴林"]},
+  "吉尔吉斯斯坦": {country:"国外", region:"吉尔吉斯斯坦"},
+  "哈萨克斯坦": {country:"国外", region:"中亚"}, "乌兹别克斯坦": {country:"国外", region:"中亚"},
+  "塔吉克斯坦": {country:"国外", region:"中亚"},
+  "格鲁吉亚": {country:"国外", region:"高加索"}, "阿塞拜疆": {country:"国外", region:"高加索"},
+  "土耳其": {country:"国外", region:"中东"}, "阿联酋": {country:"国外", region:"中东"},
+  "卡塔尔": {country:"国外", region:"中东"}, "约旦": {country:"国外", region:"中东"},
+  "塞浦路斯": {country:"国外", region:"塞浦路斯"}, "埃及": {country:"国外", region:"非洲"},
+  "摩洛哥": {country:"国外", region:"非洲"}, "突尼斯": {country:"国外", region:"非洲"},
+  "肯尼亚": {country:"国外", region:"非洲"}, "坦桑尼亚": {country:"国外", region:"非洲"},
+  "南非": {country:"国外", region:"非洲"}, "纳米比亚": {country:"国外", region:"非洲"},
+  "毛里求斯": {country:"国外", region:"非洲"}, "塞舌尔": {country:"国外", region:"非洲"},
+  "马达加斯加": {country:"国外", region:"非洲"}, "埃塞俄比亚": {country:"国外", region:"非洲"},
+  "乌干达": {country:"国外", region:"非洲"}, "卢旺达": {country:"国外", region:"非洲"},
+  "塞内加尔": {country:"国外", region:"非洲"}, "佛得角": {country:"国外", region:"非洲"},
+  "博茨瓦纳": {country:"国外", region:"非洲"}, "莫桑比克": {country:"国外", region:"非洲"},
+  "阿尔及利亚": {country:"国外", region:"非洲"}, "斯威士兰": {country:"国外", region:"非洲"},
+  "莱索托": {country:"国外", region:"非洲"}, "加纳": {country:"国外", region:"非洲"},
+  "津巴布韦": {country:"国外", region:"非洲"},
+  "马尔代夫": {country:"国外", region:"印度洋"},
+  "澳大利亚": {country:"国外", region:"大洋洲"}, "新西兰": {country:"国外", region:"大洋洲"},
+  "斐济": {country:"国外", region:"大洋洲"}, "瓦努阿图": {country:"国外", region:"大洋洲"},
+  "新喀里多尼亚": {country:"国外", region:"大洋洲"}, "库克群岛": {country:"国外", region:"大洋洲"},
+  "萨摩亚": {country:"国外", region:"大洋洲"}, "汤加": {country:"国外", region:"大洋洲"},
+  "关岛": {country:"国外", region:"大洋洲"}, "塞班": {country:"国外", region:"大洋洲"},
+  "美国": {country:"国外", region:"美洲"}, "加拿大": {country:"国外", region:"美洲"},
+  "墨西哥": {country:"国外", region:"美洲"}, "古巴": {country:"国外", region:"美洲"},
+  "秘鲁": {country:"国外", region:"美洲"}, "巴西": {country:"国外", region:"美洲"},
+  "阿根廷": {country:"国外", region:"美洲"}, "智利": {country:"国外", region:"美洲"},
+  "玻利维亚": {country:"国外", region:"美洲"}, "哥伦比亚": {country:"国外", region:"美洲"},
+  "厄瓜多尔": {country:"国外", region:"美洲"}, "哥斯达黎加": {country:"国外", region:"美洲"},
+  "巴哈马": {country:"国外", region:"美洲"}, "牙买加": {country:"国外", region:"美洲"},
+  "圣卢西亚": {country:"国外", region:"美洲"}, "乌拉圭": {country:"国外", region:"美洲"},
+  "巴拿马": {country:"国外", region:"美洲"}, "波多黎各": {country:"国外", region:"美洲"},
+  "百慕大": {country:"国外", region:"美洲"}, "危地马拉": {country:"国外", region:"美洲"},
+  "多米尼加": {country:"国外", region:"美洲"},
+  "意大利": {country:"国外", region:"欧洲"}, "法国": {country:"国外", region:"欧洲"},
+  "瑞士": {country:"国外", region:"欧洲"}, "西班牙": {country:"国外", region:"欧洲"},
+  "葡萄牙": {country:"国外", region:"欧洲"}, "希腊": {country:"国外", region:"欧洲"},
+  "冰岛": {country:"国外", region:"欧洲"}, "挪威": {country:"国外", region:"欧洲"},
+  "芬兰": {country:"国外", region:"欧洲"}, "丹麦": {country:"国外", region:"欧洲"},
+  "荷兰": {country:"国外", region:"欧洲"}, "英国": {country:"国外", region:"欧洲"},
+  "爱尔兰": {country:"国外", region:"欧洲"}, "德国": {country:"国外", region:"欧洲"},
+  "奥地利": {country:"国外", region:"欧洲"}, "捷克": {country:"国外", region:"欧洲"},
+  "匈牙利": {country:"国外", region:"欧洲"}, "波兰": {country:"国外", region:"欧洲"},
+  "比利时": {country:"国外", region:"欧洲"}, "克罗地亚": {country:"国外", region:"欧洲"},
+  "塞尔维亚": {country:"国外", region:"欧洲"}, "阿尔巴尼亚": {country:"国外", region:"欧洲"},
+  "黑山": {country:"国外", region:"欧洲"}, "斯洛文尼亚": {country:"国外", region:"欧洲"},
+  "斯洛伐克": {country:"国外", region:"欧洲"}, "保加利亚": {country:"国外", region:"欧洲"},
+  "罗马尼亚": {country:"国外", region:"欧洲"}, "马耳他": {country:"国外", region:"欧洲"},
+  "卢森堡": {country:"国外", region:"欧洲"}, "摩纳哥": {country:"国外", region:"欧洲"},
+  "安道尔": {country:"国外", region:"欧洲"}, "列支敦士登": {country:"国外", region:"欧洲"},
+  "拉脱维亚": {country:"国外", region:"欧洲"}, "立陶宛": {country:"国外", region:"欧洲"},
+  "爱沙尼亚": {country:"国外", region:"欧洲"}, "法罗群岛": {country:"国外", region:"欧洲"},
+  // —— 国外大区 ——
+  "欧洲": {country:"国外", region:"欧洲"}, "东南亚": {country:"国外", region:"东南亚"},
+  "中东": {country:"国外", region:"中东"}, "中亚": {country:"国外", region:"中亚"},
+  "南亚": {country:"国外", region:"南亚"}, "非洲": {country:"国外", region:"非洲"},
+  "美洲": {country:"国外", region:"美洲"}, "大洋洲": {country:"国外", region:"大洋洲"},
+  "东亚": {country:"国外", region:"东亚"}, "高加索": {country:"国外", region:"高加索"},
+  // —— 国外泛称（按 name 前缀匹配） ——
+  "北欧": {country:"国外", prefixes:["冰岛","挪威","芬兰","丹麦","瑞典","法罗","格陵兰"]},
+  "西欧": {country:"国外", prefixes:["法国","英国","爱尔兰","荷兰","比利时","卢森堡","摩纳哥"]},
+  "南欧": {country:"国外", prefixes:["意大利","西班牙","葡萄牙","希腊","马耳他","塞浦路斯","安道尔"]},
+  "东欧": {country:"国外", prefixes:["波兰","捷克","斯洛伐克","匈牙利","罗马尼亚","保加利亚","俄罗斯"]},
+  "中欧": {country:"国外", prefixes:["德国","奥地利","瑞士","列支敦士登","捷克","匈牙利","波兰"]},
+  "巴尔干": {country:"国外", prefixes:["克罗地亚","塞尔维亚","波黑","黑山","北马其顿","阿尔巴尼亚","斯洛文尼亚","罗马尼亚","保加利亚"]},
+  "日韩": {country:"国外", prefixes:["日本","韩国"]},
+  "新马泰": {country:"国外", prefixes:["新加坡","马来西亚","泰国"]},
+  "北美": {country:"国外", prefixes:["美国","加拿大","墨西哥"]},
+  "南美": {country:"国外", prefixes:["巴西","阿根廷","智利","秘鲁","玻利维亚","哥伦比亚","厄瓜多尔","乌拉圭"]},
+  "加勒比": {country:"国外", prefixes:["古巴","牙买加","巴哈马","多米尼加","波多黎各","圣卢西亚","百慕大"]},
+  // —— 国内省份 ——
+  "云南": {country:"国内", region:"云南"}, "四川": {country:"国内", region:"四川"},
+  "贵州": {country:"国内", region:"贵州"}, "广西": {country:"国内", region:"广西"},
+  "海南": {country:"国内", region:"海南"}, "广东": {country:"国内", region:"广东"},
+  "福建": {country:"国内", region:"福建"}, "浙江": {country:"国内", region:"浙江"},
+  "江苏": {country:"国内", region:"江苏"}, "安徽": {country:"国内", region:"安徽"},
+  "江西": {country:"国内", region:"江西"}, "湖南": {country:"国内", region:"湖南"},
+  "湖北": {country:"国内", region:"湖北"}, "河南": {country:"国内", region:"河南"},
+  "河北": {country:"国内", region:"河北"}, "山西": {country:"国内", region:"山西"},
+  "陕西": {country:"国内", region:"陕西"}, "甘肃": {country:"国内", region:"甘肃"},
+  "青海": {country:"国内", region:"青海"}, "宁夏": {country:"国内", region:"宁夏"},
+  "新疆": {country:"国内", region:"新疆"}, "西藏": {country:"国内", region:"西藏"},
+  "内蒙古": {country:"国内", region:"内蒙古"}, "辽宁": {country:"国内", region:"辽宁"},
+  "吉林": {country:"国内", region:"吉林"}, "黑龙江": {country:"国内", region:"黑龙江"},
+  "山东": {country:"国内", region:"山东"}, "台湾": {country:"国内", region:"台湾"},
+  "香港": {country:"国内", region:"港澳"}, "澳门": {country:"国内", region:"港澳"},
+  "北京": {country:"国内", region:"北京"}, "上海": {country:"国内", region:"上海"},
+  "天津": {country:"国内", region:"天津"}, "重庆": {country:"国内", region:"重庆"},
+};
+
+// 按关键词长度降序匹配，优先匹配更精确的词（"印度尼西亚" 优先于 "印尼"）
+const INTENT_KEYS = Object.keys(INTENT_MAP).sort((a, b) => b.length - a.length);
+
+function detectIntent(text){
+  const s = String(text || "");
+  if(!s) return null;
+  for(const k of INTENT_KEYS){
+    if(s.indexOf(k) >= 0) return Object.assign({label: k}, INTENT_MAP[k]);
+  }
+  return null;
+}
+
+function intentMatches(d, intent){
+  if(!intent) return true;
+  if(intent.country && d.country !== intent.country) return false;
+  if(intent.region && d.region === intent.region) return true;
+  if(intent.prefixes && intent.prefixes.some(p => d.name.startsWith(p))) return true;
+  return false;
+}
+
+/* ================= 收藏 / 已去过（localStorage） ================= */
+const LS_FAV = "trav_fav_v1", LS_DONE = "trav_done_v1";
+
+function loadSet(key){
+  try{
+    if(typeof localStorage === "undefined") return new Set();
+    const raw = localStorage.getItem(key);
+    return new Set(raw ? JSON.parse(raw) : []);
+  }catch(e){ return new Set(); }
+}
+function saveSet(key, set){
+  try{
+    if(typeof localStorage !== "undefined") localStorage.setItem(key, JSON.stringify([...set]));
+  }catch(e){}
+}
+function isFav(name){ return loadSet(LS_FAV).has(name); }
+function isDone(name){ return loadSet(LS_DONE).has(name); }
+function toggleFav(name){
+  const s = loadSet(LS_FAV);
+  s.has(name) ? s.delete(name) : s.add(name);
+  saveSet(LS_FAV, s);
+}
+function toggleDone(name){
+  const s = loadSet(LS_DONE);
+  s.has(name) ? s.delete(name) : s.add(name);
+  saveSet(LS_DONE, s);
+}
+function favDoneBadges(name){
+  let b = "";
+  if(isFav(name)) b += '<span class="mark fav">⭐ 已收藏</span>';
+  if(isDone(name)) b += '<span class="mark done">✓ 去过</span>';
+  return b;
+}
+
+/* ================= 目的地搜索索引 ================= */
+let _searchIndex = null;
+function searchIndex(){
+  if(_searchIndex) return _searchIndex;
+  _searchIndex = DESTINATIONS.map(d => ({
+    d,
+    hay: [d.name, d.region, (d.types||[]).join(" "), d.keywords || "",
+          (d.food||[]).join(" "), (d.highlights||[]).join(" ")].join(" ").toLowerCase(),
+  }));
+  return _searchIndex;
+}
+
+function searchDestinations(query, limit){
+  const q = String(query || "").trim().toLowerCase();
+  limit = limit || 30;
+  if(!q) return [];
+  const tokens = q.split(/\s+/).filter(Boolean);
+  const out = [];
+  for(const it of searchIndex()){
+    if(tokens.every(t => it.hay.indexOf(t) >= 0)){
+      out.push(it.d);
+      if(out.length >= limit) break;
+    }
+  }
+  // 名称命中优先
+  out.sort((a, b) => {
+    const an = a.name.toLowerCase().indexOf(q) >= 0 ? 0 : 1;
+    const bn = b.name.toLowerCase().indexOf(q) >= 0 ? 0 : 1;
+    return an - bn;
+  });
+  return out;
+}
+
+/* ================= 选中目的地 → 详细行程 ================= */
+function buildItinerary(d, maxDays){
+  const hl = Array.isArray(d.highlights) ? d.highlights.slice() : [];
+  const foods = Array.isArray(d.food) ? d.food.slice() : [];
+  const rr = daysRange(d.days);
+  let n = maxDays || (rr[0] <= 2 ? 2 : Math.min(5, Math.max(2, rr[0])));
+  n = Math.max(2, Math.min(6, n));
+  const groups = Array.from({length: n}, () => []);
+  hl.forEach((h, i) => groups[i % n].push(h));
+  const plan = groups.map((g, i) => {
+    const food = foods.length ? foods[i % foods.length] : "";
+    const morning = g[0] || (i === 0 ? "抵达后先到住处放行李，熟悉周边环境" : "睡到自然醒，酒店周边闲逛");
+    const afternoon = g[1] || "安排一个轻松的当季体验（按当日天气调整）";
+    const evening = g[2] || "找一家当地人气餐厅，早点休息养精蓄锐";
+    const schedule = [
+      {time: "08:30-09:00", what: "早餐（酒店或当地早点摊）"},
+      {time: "09:00-11:30", what: morning},
+      {time: "11:30-13:00", what: "午餐" + (food ? `：${food}` : "")},
+      {time: "13:00-13:30", what: "城区通勤（打车约 15-30 分钟，按片区就近安排）"},
+      {time: "13:30-16:30", what: afternoon},
+      {time: "16:30-18:00", what: "回酒店休息 / 自由活动"},
+      {time: "19:00-20:30", what: "晚餐" + (food ? `：${food}` : "") + "，饭后可选夜游"},
+    ];
+    return {day: i + 1, morning, afternoon, evening, food, spare: g.slice(3), schedule};
+  });
+  const tips = [];
+  if((d.transport || []).some(t => t === "自驾" || t === "包车")) tips.push("建议租车或包车串联同区域景点，山区注意弯道与限速");
+  else tips.push("市内以地铁+打车为主，跨区可乘城际大巴或高铁，提前查好末班车时间");
+  if((d.activities || []).some(a => a === "徒步登山")) tips.push("徒步日请早出发，带足水与防晒，预留体力");
+  if((d.activities || []).some(a => a === "海滨沙滩")) tips.push("海边注意防晒与潮汐，旺季提前订好海景房");
+  if(d.visa_note) tips.push("签证提示：" + d.visa_note);
+  if(d.budget_cny) tips.push("预算参考：" + d.budget_cny);
+  return {days: n, plan, tips};
+}
+
+function itineraryHtml(d, maxDays, days){
+  const it = buildItinerary(d, maxDays);
+  const nDays = days || it.days;
+  const dayCards = it.plan.map(day => `
+    <div class="day-card">
+      <div class="day-head">Day ${day.day}</div>
+      ${day.schedule.map(s => `<div class="day-row"><b>${s.time}</b><span>${esc(s.what)}</span></div>`).join("")}
+      ${day.spare.length ? `<div class="day-row spare"><b>🗂 备选</b><span>${esc(day.spare.join("、"))}</span></div>` : ""}
+    </div>`).join("");
+  const tips = it.tips.map(t => `<li>${esc(t)}</li>`).join("");
+  return `
+    <div class="itin-head">
+      <div class="itin-title">🗺️ ${esc(d.name)} · ${it.days} 天行程建议</div>
+      <div class="itin-sub">${esc(d.region)} · ${esc(d.days)} 天为宜 · ${esc(d.budget_cny || "")}${d.visa_note ? " · 🛂 " + esc(d.visa_note) : ""}</div>
+    </div>
+    <div class="itin-days">${dayCards}</div>
+    <div class="itin-tips"><h4>💡 行程贴士</h4><ul>${tips}</ul></div>
+    ${costHtml(d, nDays)}
+    ${stayHtml(d)}
+    <div class="stay-box"><h4>📅 最佳出行月份</h4>${monthStripHtml(d)}</div>
+    ${festivalsHtml(d)}
+    ${travelTipsHtml(d)}
+    <div class="itin-note">按片区就近安排，实际顺序可按当天交通与天气微调；营业时间请以景区公告为准。</div>`;
+}
+
+function showItinerary(name){
+  const d = DESTINATIONS.find(x => x.name === name);
+  if(!d) return;
+  S.itinName = name;
+  const body = itineraryHtml(d, null, S.itinDays);
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>行程规划</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body" id="modal-body">${body}</div>
+      <div class="modal-foot">
+        <button class="btn2" id="itin-fav">${isFav(d.name) ? "★ 取消收藏" : "⭐ 收藏"}</button>
+        <button class="btn2" id="itin-done">${isDone(d.name) ? "✓ 取消去过" : "✓ 标记去过"}</button>
+        <button class="btn2" id="itin-sim">🔄 找相似</button>
+        <button class="btn2" id="itin-pack">🎒 打包清单</button>
+        <button class="btn1" id="itin-dl">⬇️ 下载行程</button>
+      </div>
+    </div>`;
+  modal.classList.add("show");
+  document.getElementById("modal-close").onclick = () => modal.classList.remove("show");
+  modal.onclick = (e) => { if(e.target === modal) modal.classList.remove("show"); };
+  document.getElementById("itin-fav").onclick = () => { toggleFav(d.name); showItinerary(d.name); };
+  document.getElementById("itin-done").onclick = () => { toggleDone(d.name); showItinerary(d.name); };
+  document.getElementById("itin-sim").onclick = () => showSimilar(d.name);
+  document.getElementById("itin-pack").onclick = () => showPacking(d.name);
+  document.getElementById("itin-dl").onclick = () => downloadItinerary(d);
+  const cd = document.getElementById("cost-days");
+  if(cd){
+    cd.onchange = () => {
+      const v = parseInt(cd.value || "0", 10);
+      S.itinDays = isNaN(v) ? S.itinDays : Math.max(1, Math.min(30, v));
+      showItinerary(name);
+    };
+  }
+}
+
+function downloadItinerary(d){
+  const it = buildItinerary(d);
+  const html = `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(d.name)} 行程</title>
+<style>
+ body{margin:0;background:#f5f6f8;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#1f2937;line-height:1.7}
+ .wrap{max-width:760px;margin:0 auto;padding:24px 16px 50px}
+ header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;border-radius:18px;padding:24px;text-align:center}
+ header h1{margin:0 0 6px;font-size:24px} header p{margin:0;opacity:.9;font-size:14px}
+ .day{background:#fff;border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+ .day h3{margin:0 0 10px;color:#0f766e;font-size:16px}
+ .row{margin:8px 0;font-size:14.5px} .row b{display:inline-block;width:76px;color:#475569}
+ .row em{display:block;margin-top:2px;color:#c2410c;font-style:normal;font-size:13px}
+ .tips{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:16px;margin:16px 0}
+ .tips h3{margin:0 0 8px;color:#b45309;font-size:15px} .tips ul{margin:0;padding-left:20px;font-size:14px}
+ .foot{text-align:center;color:#9ca3af;font-size:12px;margin-top:24px}
+</style></head><body><div class="wrap">
+<header><h1>🗺️ ${esc(d.name)} · ${it.days} 天行程</h1><p>${esc(d.region)} · ${esc(d.days)} 天为宜 · ${esc(d.budget_cny || "")}${d.visa_note ? " · 🛂 " + esc(d.visa_note) : ""}</p></header>
+${it.plan.map(day => `<div class="day"><h3>Day ${day.day}</h3>
+  <div class="row"><b>🌅 上午</b>${esc(day.morning)}</div>
+  <div class="row"><b>☀️ 下午</b>${esc(day.afternoon)}</div>
+  <div class="row"><b>🌙 晚上</b>${esc(day.evening)}${day.food.length ? `<em>🍜 ${esc(day.food[0])}</em>` : ""}</div>
+  ${day.spare.length ? `<div class="row"><b>🗂 备选</b>${esc(day.spare.join("、"))}</div>` : ""}
+</div>`).join("")}
+<div class="tips"><h3>💡 行程贴士</h3><ul>${it.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>
+<div class="foot">由「旅行目的地推荐助手」生成 · 信息仅供参考，出行前请核实</div>
+</div></body></html>`;
+  const blob = new Blob([html], {type:"text/html;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${d.name.replace(/[·/\\]/g, "_")}_行程.html`;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 5000);
+}
+
+/* ================= 花费估算 ================= */
+const TIERS = ["低", "中低", "中", "中高", "高"];
+const COST_MODEL = {
+  transport: { 国内: [600, 900, 1200, 1600, 2200], 国外: [2500, 3500, 5000, 7000, 9000] },
+  hotel: [150, 250, 400, 650, 1000],
+  food: [80, 120, 180, 260, 400],
+  ticket: [50, 80, 120, 180, 250],
+  misc: [30, 50, 70, 100, 150],
+};
+
+function tierIndex(d){
+  const i = TIERS.indexOf(d.budget);
+  return i >= 0 ? i : 2;
+}
+
+function estimateCost(d, days){
+  days = Math.max(1, Math.min(30, days || 1));
+  const t = tierIndex(d);
+  const intl = d.country === "国外";
+  const transport = COST_MODEL.transport[intl ? "国外" : "国内"][t];
+  const hotel = COST_MODEL.hotel[t] * days;
+  const food = COST_MODEL.food[t] * days;
+  const ticket = COST_MODEL.ticket[t] * days;
+  const misc = COST_MODEL.misc[t] * days;
+  const total = transport + hotel + food + ticket + misc;
+  return { transport, hotel, food, ticket, misc, total, perDay: Math.round(total / days) };
+}
+
+function costHtml(d, days){
+  const c = estimateCost(d, days);
+  const money = n => "¥" + n.toLocaleString("zh-CN");
+  return `
+    <div class="cost-box">
+      <div class="cost-head">
+        <b>💰 花费估算（每人）</b>
+        <span class="cost-days">按 <input id="cost-days" type="number" min="1" max="30" value="${days}"> 天算</span>
+      </div>
+      <table class="cost-table">
+        <tr><td>往返交通</td><td>${money(c.transport)}</td></tr>
+        <tr><td>住宿（${days} 晚）</td><td>${money(c.hotel)}</td></tr>
+        <tr><td>餐饮</td><td>${money(c.food)}</td></tr>
+        <tr><td>门票 / 体验</td><td>${money(c.ticket)}</td></tr>
+        <tr><td>其他 / 机动</td><td>${money(c.misc)}</td></tr>
+        <tr class="cost-total"><td>合计</td><td>${money(c.total)}（约 ${money(c.perDay)}/天）</td></tr>
+      </table>
+      <div class="cost-note">参考知识库标注：${esc(d.budget_cny || "—")} · 估算按${TIERS[tierIndex(d)]}档消费水平计算，实际以预订价格为准。</div>
+    </div>`;
+}
+
+/* ================= 住宿区域建议 ================= */
+function stayAreas(d){
+  const areas = [];
+  const hl = (d.highlights || []).join(" ");
+  const acts = d.activities || [];
+  if(/古城|古镇|老街|古村/.test(hl)) areas.push(["古城 / 古镇片区", "步行可达主要景点，晚上氛围最好；旺季人多、停车难，订房要早"]);
+  if(acts.includes("海滨沙滩")) areas.push(["海边一线", "步行到沙滩、看日出日落方便；注意潮气与旺季涨价"]);
+  if(acts.includes("温泉")) areas.push(["温泉区", "泡汤最方便、适合放松；离市区较远，吃饭选择少"]);
+  if(acts.includes("主题乐园")) areas.push(["乐园周边", "步行或接驳车方便、适合带娃；价格偏高"]);
+  if(acts.includes("徒步登山")) areas.push(["景区门口 / 换乘中心", "省通勤、早出发方便；配套相对简单"]);
+  if(!areas.length) areas.push(["市中心 / 地铁沿线", "交通便利、餐饮选择多，去各景点都方便"]);
+  const band = ({
+    "低": "青旅 / 经济型约 150-300 元/晚",
+    "中低": "快捷酒店 / 民宿约 200-400 元/晚",
+    "中": "舒适型约 400-700 元/晚",
+    "中高": "精品 / 度假约 700-1200 元/晚",
+    "高": "度假村 / 五星 1200 元+/晚",
+  })[d.budget] || "按预算选择";
+  return { areas, band };
+}
+
+function stayHtml(d){
+  const s = stayAreas(d);
+  const rows = s.areas.map(([t, why]) => `<li><b>${esc(t)}</b>：${esc(why)}</li>`).join("");
+  return `<div class="stay-box"><h4>🏨 住哪儿更合适</h4><ul>${rows}</ul>
+    <div class="stay-band">价位参考：${esc(s.band)} · 旺季建议提前 2-4 周预订</div></div>`;
+}
+
+/* ================= 最佳月份日历 ================= */
+const MONTHS = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+const SEASON_MONTHS = { 春: [3,4,5], 夏: [6,7,8], 秋: [9,10,11], 冬: [12,1,2] };
+
+function monthRatings(d){
+  const r = new Array(12).fill(1);
+  (d.season || []).forEach(s => (SEASON_MONTHS[s] || []).forEach(m => { r[m - 1] = 3; }));
+  for(let i = 0; i < 12; i++){
+    if(r[i] === 1 && (r[(i + 11) % 12] === 3 || r[(i + 1) % 12] === 3)) r[i] = 2;
+  }
+  return r;
+}
+
+function monthStripHtml(d, compact){
+  const r = monthRatings(d);
+  const cells = r.map((v, i) =>
+    `<span class="mc mc${v}" title="${MONTHS[i]}：${v === 3 ? "最佳" : v === 2 ? "不错" : "一般"}">${compact ? "" : MONTHS[i].replace("月","")}</span>`
+  ).join("");
+  return `<div class="month-strip ${compact ? "compact" : ""}">${cells}${compact ? "" : '<span class="mc-legend">■最佳 ■较好 ■一般</span>'}</div>`;
+}
+
+/* ================= 目的地对比 ================= */
+function compareHtml(names){
+  const ds = names.map(n => DESTINATIONS.find(d => d.name === n)).filter(Boolean);
+  if(!ds.length) return "";
+  const row = (label, fn) => `<tr><th>${esc(label)}</th>${ds.map(d => `<td>${fn(d)}</td>`).join("")}</tr>`;
+  const costRows = ds.map(d => {
+    const days = daysRange(d.days)[0] || 2;
+    return estimateCost(d, days).total;
+  });
+  return `<div class="cmp-wrap"><table class="cmp-table">
+    <tr><th>目的地</th>${ds.map(d => `<td><b>${esc(d.name)}</b></td>`).join("")}</tr>
+    ${row("地区", d => esc(d.region))}
+    ${row("预算档", d => esc(d.budget_cny || d.budget))}
+    ${row("建议天数", d => esc(d.days))}
+    ${row("最佳季节", d => esc((d.season || []).join("、")))}
+    ${row("出行方式", d => esc((d.transport || []).join("/")))}
+    ${row("签证", d => esc(d.visa_note || "—"))}
+    ${row("适合人群", d => esc((d.companion || []).join("、")))}
+    ${row("核心亮点", d => esc((d.highlights || []).slice(0, 3).join("；")))}
+    ${row("特色美食", d => esc((d.food || []).slice(0, 3).join("、")))}
+    ${row("花费估算", (d, i) => `<b>¥${costRows[ds.indexOf(d)].toLocaleString("zh-CN")}</b>`)}
+    ${row("最佳月份", d => monthStripHtml(d, true))}
+  </table></div>`;
+}
+
+function showCompare(names){
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>⚖️ 目的地对比（${names.length} 个）</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">${compareHtml(names)}</div>
+      <div class="modal-foot"><button class="btn2" id="cmp-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("cmp-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+}
+
+function toggleCompare(name){
+  const i = S.compare.indexOf(name);
+  if(i >= 0) S.compare.splice(i, 1);
+  else {
+    if(S.compare.length >= 3) S.compare.shift();
+    S.compare.push(name);
+  }
+}
+
+/* ================= 环线规划（多城市串联） ================= */
+function coordOf(d){
+  if(!d) return null;
+  const name = String(d.name || "");
+  const parts = name.split("·");
+  const p = parts.length > 1 ? parts[0] : name;
+  const tail = parts.length > 1 ? parts[parts.length - 1] : name;
+  if(CITY_CENTER[tail]) return CITY_CENTER[tail];
+  for(let L = Math.min(4, tail.length); L > 1; L--){
+    if(CITY_CENTER[tail.slice(0, L)]) return CITY_CENTER[tail.slice(0, L)];
+  }
+  if(CITY_CENTER[p]) return CITY_CENTER[p];
+  if(COUNTRY_CENTER[p]) return COUNTRY_CENTER[p];
+  if(PROVINCE_CENTER[p]) return PROVINCE_CENTER[p];
+  if(COUNTRY_CENTER[name]) return COUNTRY_CENTER[name];
+  if(PROVINCE_CENTER[d.region]) return PROVINCE_CENTER[d.region];
+  if(COUNTRY_CENTER[d.region]) return COUNTRY_CENTER[d.region];
+  return null;
+}
+
+/* ================= 交通时长估算（周末筛选 + 卡片展示） ================= */
+const WEEKEND_MAX_KM = 450;
+
+function cityCoord(city){
+  const c = String(city || "").trim();
+  if(CITY_CENTER[c]) return CITY_CENTER[c];
+  const prov = CITY_PROVINCE[c];
+  if(prov && PROVINCE_CENTER[prov]) return PROVINCE_CENTER[prov];
+  return null;
+}
+
+function destCoordLevel(d){
+  const name = String(d.name || "");
+  const parts = name.split("·");
+  const tail = parts.length > 1 ? parts[parts.length - 1] : name;
+  if(CITY_CENTER[tail]) return "city";
+  for(let L = Math.min(4, tail.length); L > 1; L--){
+    if(CITY_CENTER[tail.slice(0, L)]) return "city";
+  }
+  if(PROVINCE_CENTER[d.region]) return "province";
+  return "country";
+}
+
+function travelEstimate(city, d){
+  // 预计算表（高德实测）优先
+  const row = (TRANSPORT_TABLE[String(city || "")] || {})[d.name];
+  if(row && row.length >= 4){
+    const km = row[0];
+    return {
+      km,
+      driveH: row[1],
+      trainH: row[2],
+      flightH: Math.max(1.0, Math.round((km / 750 + 2.0) * 10) / 10),
+      toll: row[3],
+      src: "amap",
+    };
+  }
+  const a = cityCoord(city), b = coordOf(d);
+  if(!a || !b) return null;
+  let km = Math.round(distanceKm(a, b));
+  if(destCoordLevel(d) === "province" && d.country === "国内") km += 120;
+  const roadKm = km * 1.25;
+  const intl = d.country === "国外";
+  return {
+    km,
+    driveH: Math.max(0.3, Math.round(roadKm / 75 * 10) / 10),
+    trainH: Math.max(0.5, Math.round((km / 250 + 0.7) * 10) / 10),
+    flightH: Math.max(1.0, Math.round((km / 750 + 2.0) * 10) / 10),
+    toll: intl ? 0 : Math.round(roadKm * 0.45),
+    src: "estimate",
+  };
+}
+
+function travelBrief(city, d){
+  const t = travelEstimate(city, d);
+  if(!t) return "";
+  const tag = t.src === "amap" ? "（实测）" : "（估算）";
+  if(d.country === "国外") return `✈️ 飞行约 ${t.flightH} 小时${tag}`;
+  const parts = [`约 ${t.km} 公里`, `🚗 约 ${t.driveH} 小时` + (t.toll ? ` · 过路费约 ¥${t.toll}` : ""), `🚄 约 ${t.trainH} 小时`];
+  return parts.join(" · ") + tag;
+}
+
+function distanceKm(a, b){
+  const R = 6371, rad = x => x * Math.PI / 180;
+  const dLat = rad(b[0] - a[0]), dLon = rad(b[1] - a[1]);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+function planRoute(names){
+  const ds = names.map(n => DESTINATIONS.find(d => d.name === n)).filter(Boolean);
+  if(ds.length < 2) return null;
+  const remaining = ds.slice(1);
+  const ordered = [ds[0]];
+  let cur = ds[0];
+  while(remaining.length){
+    let bi = 0, bd = Infinity;
+    remaining.forEach((d, i) => {
+      const c1 = coordOf(cur), c2 = coordOf(d);
+      const dd = (c1 && c2) ? distanceKm(c1, c2) : 1e9;
+      if(dd < bd){ bd = dd; bi = i; }
+    });
+    cur = remaining.splice(bi, 1)[0];
+    ordered.push(cur);
+  }
+  const legs = [];
+  for(let i = 1; i < ordered.length; i++){
+    const a = coordOf(ordered[i - 1]), b = coordOf(ordered[i]);
+    let km = (a && b) ? Math.round(distanceKm(a, b)) : null;
+    if(km !== null && km < 5) km = null;  // 同一城市群（共用国家/省级中心）
+    legs.push({
+      from: ordered[i - 1].name, to: ordered[i].name, km,
+      trainH: km ? Math.max(0.7, Math.round((km / 250 + 0.7) * 10) / 10) : null,
+      driveH: km ? Math.round(km / 80 * 10) / 10 : null,
+    });
+  }
+  const days = ordered.map(d => Math.max(2, daysRange(d.days)[0] || 2));
+  const totalDays = days.reduce((a, b) => a + b, 0);
+  const costs = ordered.map((d, i) => estimateCost(d, days[i]).total);
+  const totalCost = costs.reduce((a, b) => a + b, 0);
+  return { ordered, legs, days, totalDays, costs, totalCost };
+}
+
+function routeHtml(names){
+  const r = planRoute(names);
+  if(!r) return `<div class="note">请选择至少 2 个目的地</div>`;
+  const stops = r.ordered.map((d, i) => `
+    <div class="route-stop">
+      <div class="route-idx">${i + 1}</div>
+      <div class="route-main">
+        <div class="route-name">${esc(d.name)} ${i === 0 ? '<span class="mark">起点</span>' : ""}</div>
+        <div class="route-meta">${esc(d.region)} · 建议 ${r.days[i]} 天 · 约 ¥${r.costs[i].toLocaleString("zh-CN")}${d.visa_note ? " · 🛂 " + esc(d.visa_note) : ""}</div>
+        ${i < r.legs.length ? `<div class="route-leg">↓ ${esc(r.legs[i].from)} → ${esc(r.legs[i].to)}：${r.legs[i].km ? `约 ${r.legs[i].km} 公里 · 高铁约 ${r.legs[i].trainH} 小时（含换乘）· 自驾约 ${r.legs[i].driveH} 小时` : "同一城市群/地区内，按当地高铁/大巴/包车安排（约 1-3 小时）"}</div>` : ""}
+      </div>
+    </div>`).join("");
+  return `<div class="route-box">
+    <div class="route-summary">🧭 环线：${r.ordered.map(d => esc(d.name)).join(" → ")}<br>
+      总天数 <b>${r.totalDays}</b> 天 · 总花费约 <b>¥${r.totalCost.toLocaleString("zh-CN")}</b>（每人，含各段交通估算）</div>
+    ${stops}
+    <div class="route-note">顺序按地理邻近自动排序；公里数为近似值，城际时间按高铁 250km/h + 换乘 0.7h / 自驾 80km/h 估算，实际请以 12306/地图为准。</div>
+  </div>`;
+}
+
+function showRoute(names){
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>🧭 多城市环线规划</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">${routeHtml(names)}</div>
+      <div class="modal-foot"><button class="btn2" id="route-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("route-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+}
+
+/* ================= 相似替代推荐 ================= */
+function similarity(a, b){
+  const jac = (x, y) => {
+    const A = new Set(x || []), B = new Set(y || []);
+    if(!A.size && !B.size) return 0;
+    let inter = 0;
+    A.forEach(v => { if(B.has(v)) inter++; });
+    return inter / (A.size + B.size - inter);
+  };
+  let s = 0;
+  s += jac(a.types, b.types) * 2;
+  s += jac(a.activities, b.activities) * 2;
+  s += jac(a.climate, b.climate);
+  s += jac(a.style, b.style);
+  s += jac(a.companion, b.companion) * 0.5;
+  if(a.country === b.country) s += 0.5;
+  if(a.budget === b.budget) s += 0.5;
+  if(a.region === b.region) s += 1;
+  return s;
+}
+
+function similarTo(name, k){
+  const base = DESTINATIONS.find(d => d.name === name);
+  if(!base) return [];
+  return DESTINATIONS.filter(d => d.name !== name)
+    .map(d => ({d, s: similarity(base, d)}))
+    .sort((x, y) => y.s - x.s)
+    .slice(0, k || 5);
+}
+
+function showSimilar(name){
+  const base = DESTINATIONS.find(d => d.name === name);
+  if(!base) return;
+  const list = similarTo(name, 5);
+  const rows = list.map(({d, s}) => `
+    <div class="sim-row">
+      <div class="sim-main">
+        <div class="sim-name">${esc(d.name)} <span class="sim-score">相似度 ${Math.round(s / 8.5 * 100)}%</span></div>
+        <div class="sim-meta">${esc(d.region)} · ${esc(d.budget_cny || "")} · ${esc(d.days)} 天</div>
+        <div class="sim-why">${esc(d.reason || "")}</div>
+      </div>
+      <div class="sim-actions">
+        <button class="mini" data-itin="${esc(d.name)}">🗺️ 行程</button>
+        <button class="mini" data-fav="${esc(d.name)}">${isFav(d.name) ? "★ 已收藏" : "⭐ 收藏"}</button>
+      </div>
+    </div>`).join("");
+  const modal = document.getElementById("modal");
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>🔄 与「${esc(name)}」相似的替代</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">${rows || '<div class="note">没有找到相似的替代目的地</div>'}</div>
+      <div class="modal-foot"><button class="btn2" id="sim-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("sim-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+  document.querySelectorAll("[data-itin]").forEach(b => b.onclick = () => showItinerary(b.getAttribute("data-itin")));
+  document.querySelectorAll("[data-fav]").forEach(b => b.onclick = () => { toggleFav(b.getAttribute("data-fav")); showSimilar(name); });
+}
+
+/* ================= 预算反推 ================= */
+function budgetReverse(budget, scope){
+  const out = [];
+  for(const d of DESTINATIONS){
+    if(scope && scope !== "都可以" && d.country !== scope) continue;
+    const t = tierIndex(d);
+    const intl = d.country === "国外";
+    const transport = COST_MODEL.transport[intl ? "国外" : "国内"][t];
+    if(budget <= transport) continue;
+    const daily = COST_MODEL.hotel[t] + COST_MODEL.food[t] + COST_MODEL.ticket[t] + COST_MODEL.misc[t];
+    const days = Math.floor((budget - transport) / daily);
+    const minD = Math.max(2, daysRange(d.days)[0] || 2);
+    if(days < minD) continue;
+    out.push({d, days, total: transport + daily * minD});
+  }
+  out.sort((a, b) => b.days - a.days || a.total - b.total);
+  return out.slice(0, 15);
+}
+
+function showBudgetReverse(){
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>💡 预算反推</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">
+        <div class="note">输入你愿意花的钱（每人），看看能玩多少天、去哪儿划算。</div>
+        <div class="nav" style="margin-top:8px">
+          <input class="text" id="br-budget" type="number" min="500" step="500" value="8000" style="flex:1">
+          <select class="text" id="br-scope" style="flex:0 0 auto;max-width:120px">
+            <option>国内</option><option>国外</option><option>都可以</option>
+          </select>
+          <button class="btn1" id="br-go" style="flex:0 0 auto">反推</button>
+        </div>
+        <div id="br-result" style="margin-top:10px"></div>
+      </div>
+      <div class="modal-foot"><button class="btn2" id="br-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("br-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+  const go = () => {
+    const b = parseInt(document.getElementById("br-budget").value || "0", 10);
+    const scope = document.getElementById("br-scope").value;
+    const res = budgetReverse(b, scope);
+    document.getElementById("br-result").innerHTML = res.length ? res.map(x => `
+      <div class="sim-row">
+        <div class="sim-main">
+          <div class="sim-name">${esc(x.d.name)} <span class="sim-score">可玩约 ${x.days} 天</span></div>
+          <div class="sim-meta">${esc(x.d.region)} · ${esc(x.d.budget_cny || "")} · 最低 ${x.days} 天约 ¥${x.total.toLocaleString("zh-CN")}</div>
+        </div>
+        <div class="sim-actions"><button class="mini" data-itin="${esc(x.d.name)}">🗺️ 行程</button></div>
+      </div>`).join("") : `<div class="note">预算太少，连往返交通都不够；试试调高或换"国内"。</div>`;
+    document.querySelectorAll("[data-itin]").forEach(btn => btn.onclick = () => showItinerary(btn.getAttribute("data-itin")));
+  };
+  document.getElementById("br-go").onclick = go;
+  go();
+}
+
+/* ================= 节庆日历 ================= */
+function festivalsFor(d){
+  const name = String(d.name || ""), region = d.region || "";
+  return FESTIVALS.filter(f => {
+    const a = f.area || "";
+    return (a && name.startsWith(a)) || a === region || (a === "欧洲" && d.country === "国外" && /欧洲/.test(region));
+  });
+}
+
+function festivalsHtml(d){
+  const list = festivalsFor(d);
+  if(!list.length) return "";
+  const rows = list.map(f => {
+    const m = f.months.map(x => x + "月").join("、");
+    return `<li><b>${esc(f.name)}</b>（${m}）：${esc(f.desc)}</li>`;
+  }).join("");
+  return `<div class="fest-box"><h4>🎉 期间节庆 / 季节性事件</h4><ul>${rows}</ul></div>`;
+}
+
+function showFestivalCalendar(){
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  const byMonth = {};
+  FESTIVALS.forEach(f => f.months.forEach(m => { (byMonth[m] = byMonth[m] || []).push(f); }));
+  const months = Object.keys(byMonth).map(Number).sort((a, b) => a - b);
+  const body = months.map(m => `
+    <div class="fest-month"><div class="fest-m">${m} 月</div>
+      <ul>${byMonth[m].map(f => `<li><b>${esc(f.name)}</b> · ${esc(f.area)}：${esc(f.desc)}</li>`).join("")}</ul>
+    </div>`).join("");
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>🎉 全年节庆日历</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">${body}</div>
+      <div class="modal-foot"><button class="btn2" id="fest-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("fest-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+}
+
+/* ================= 打包清单 ================= */
+function packingList(d, profile){
+  const items = PACKING_BASE.slice();
+  const acts = d.activities || [];
+  const climate = d.climate || [];
+  const comp = (profile && profile.companion) || "";
+  const long = daysRange(d.days)[1] >= 7;
+  const checks = {
+    "雪": climate.includes("雪"),
+    "温暖": climate.includes("温暖"),
+    "海滨沙滩": acts.includes("海滨沙滩"),
+    "徒步登山": acts.includes("徒步登山"),
+    "滑雪": acts.includes("滑雪"),
+    "温泉": acts.includes("温泉"),
+    "主题乐园": acts.includes("主题乐园"),
+    "国外": d.country === "国外",
+    "家庭(带小孩)": comp.indexOf("小孩") >= 0,
+    "家庭(带老人)": comp.indexOf("老人") >= 0,
+    "长线": long,
+  };
+  for(const rule of PACKING_RULES){
+    if(checks[rule[0]]) items.push(...rule[2]);
+  }
+  return [...new Set(items)];
+}
+
+function showPacking(name){
+  const d = DESTINATIONS.find(x => x.name === name);
+  if(!d) return;
+  const items = packingList(d, S.profile || {});
+  const rows = items.map((it, i) =>
+    `<label class="pack-row"><input type="checkbox" data-pack="${i}"> <span>${esc(it)}</span></label>`).join("");
+  const modal = document.getElementById("modal");
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>🎒 打包清单 · ${esc(d.name)}</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body">
+        <div class="note">按目的地气候、玩法和同行人生成；可勾选后打印带走。</div>
+        <div class="pack-list">${rows}</div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn2" id="pack-copy">📋 复制清单</button>
+        <button class="btn2" id="pack-print">🖨️ 打印</button>
+        <button class="btn1" id="pack-close">关闭</button>
+      </div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("pack-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+  document.getElementById("pack-copy").onclick = () => {
+    const txt = items.map((x, i) => `${i + 1}. ${x}`).join("\n");
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).catch(() => {});
+    }else{
+      const ta = document.createElement("textarea");
+      ta.value = txt;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch(e) {}
+      ta.remove();
+    }
+  };
+  document.getElementById("pack-print").onclick = () => window.print();
+}
+
+/* ================= 出国速查卡 ================= */
+function travelTipsFor(d){
+  if(!d || d.country !== "国外") return null;
+  const name = String(d.name || "");
+  const p = name.split("·")[0];
+  if(COUNTRY_TIPS[p]) return {label: p, data: COUNTRY_TIPS[p]};
+  if(COUNTRY_TIPS[name]) return {label: name, data: COUNTRY_TIPS[name]};
+  const reg = d.region || "";
+  if(REGION_TIPS[reg]) return {label: p, data: REGION_TIPS[reg], fallback: true};
+  if(REGION_TIPS[d.country]) return {label: p, data: REGION_TIPS[d.country], fallback: true};
+  return null;
+}
+
+function travelTipsHtml(d){
+  const t = travelTipsFor(d);
+  if(!t) return "";
+  const data = t.data;
+  const plugDesc = String(data[1] || "").split("/").map(x => PLUG_MEANING[x] || x).join("；");
+  const voltWarn = (data[2] !== "220V" && data[2] !== "230V") ? "（需变压器/转换插头）" : "";
+  return `<div class="tips-box">
+    <h4>🧾 出国速查 · ${esc(t.label)}</h4>
+    <table class="tips-table">
+      <tr><td>货币</td><td>${esc(data[0])}</td></tr>
+      <tr><td>插座</td><td>${esc(data[1])}（${esc(plugDesc)}）</td></tr>
+      <tr><td>电压</td><td>${esc(data[2])}${voltWarn}</td></tr>
+      <tr><td>时区</td><td>${esc(data[3])}</td></tr>
+      <tr><td>紧急电话</td><td>${esc(data[4])}</td></tr>
+      <tr><td>小费</td><td>${esc(data[5])}</td></tr>
+      <tr><td>常用 App</td><td>${esc(data[6])}</td></tr>
+    </table>
+    <div class="tips-note">出行前把中国驻当地使领馆电话存进手机${t.fallback ? "；该国家为区域通用信息，具体以当地为准" : ""}。</div>
+  </div>`;
+}
+
+function showTravelCard(){
+  const modal = document.getElementById("modal");
+  if(!modal) return;
+  const countries = Object.keys(COUNTRY_TIPS);
+  const rows = countries.map(c => {
+    const d = COUNTRY_TIPS[c];
+    return `<div class="tc-row"><b>${esc(c)}</b><span>${esc(d[0])} · 插座 ${esc(d[1])} · ${esc(d[2])} · ${esc(d[3])}</span></div>`;
+  }).join("");
+  modal.innerHTML = `<div class="modal-box">
+      <div class="modal-head"><b>🌍 出国速查卡（${countries.length} 个国家/地区）</b>
+        <span class="modal-close" id="modal-close">✕</span></div>
+      <div class="modal-body"><div class="note">货币 · 插座 · 电压 · 时区；打包前对照插头类型。</div>
+        <div class="tc-list">${rows}</div>
+        <div class="note" style="margin-top:10px">插座说明：${Object.keys(PLUG_MEANING).map(k => k + "=" + PLUG_MEANING[k]).join("；")}</div>
+      </div>
+      <div class="modal-foot"><button class="btn2" id="tc-close">关闭</button></div>
+    </div>`;
+  modal.classList.add("show");
+  const close = () => modal.classList.remove("show");
+  document.getElementById("modal-close").onclick = close;
+  document.getElementById("tc-close").onclick = close;
+  modal.onclick = (e) => { if(e.target === modal) close(); };
+}
+function wrapText(ctx, text, maxWidth){
+  const out = [];
+  let line = "";
+  for(const ch of String(text || "")){
+    const test = line + ch;
+    if(ctx.measureText(test).width > maxWidth && line){
+      out.push(line); line = ch;
+    }else{
+      line = test;
+    }
+  }
+  if(line) out.push(line);
+  return out;
+}
+
+function buildShareCanvas(){
+  const W = 750, pad = 40;
+  const items = (S.shareItems || []).slice(0, 6);
+  const prov = S.profile || {};
+  const labels = profileLabels(prov).slice(0, 6);
+  const cvs = document.createElement("canvas");
+  const ctx = cvs.getContext("2d");
+  let H = 300 + items.length * 230 + 120;
+  cvs.width = W; cvs.height = H;
+  // 背景
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, "#f0fdfa"); g.addColorStop(1, "#f8fafc");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  // 头部
+  const hg = ctx.createLinearGradient(0, 0, W, 260);
+  hg.addColorStop(0, "#0f766e"); hg.addColorStop(1, "#14b8a6");
+  ctx.fillStyle = hg;
+  ctx.roundRect ? ctx.roundRect(24, 24, W - 48, 190, 24) : ctx.rect(24, 24, W - 48, 190);
+  ctx.fill();
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 44px 'Microsoft YaHei','PingFang SC',sans-serif";
+  ctx.fillText("🧳 我的旅行推荐", 56, 105);
+  ctx.font = "26px 'Microsoft YaHei','PingFang SC',sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,.92)";
+  ctx.fillText("根据我的偏好 + 全网搜索生成", 56, 155);
+  ctx.font = "24px 'Microsoft YaHei','PingFang SC',sans-serif";
+  ctx.fillText(labels.map(([k, v]) => `${k}：${v}`).join(" · ").slice(0, 42), 56, 195);
+  // 目的地卡片
+  let y = 260;
+  items.forEach((x, i) => {
+    const d = x.dest || x;
+    ctx.fillStyle = "#ffffff";
+    ctx.shadowColor = "rgba(0,0,0,.08)"; ctx.shadowBlur = 16; ctx.shadowOffsetY = 4;
+    ctx.roundRect ? ctx.roundRect(24, y, W - 48, 200, 20) : ctx.rect(24, y, W - 48, 200);
+    ctx.fill();
+    ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+    ctx.fillStyle = "#f59e0b";
+    ctx.font = "bold 40px 'Microsoft YaHei','PingFang SC',sans-serif";
+    ctx.fillText("#" + (i + 1), 52, y + 62);
+    ctx.fillStyle = "#1f2937";
+    ctx.font = "bold 34px 'Microsoft YaHei','PingFang SC',sans-serif";
+    ctx.fillText(String(d.name).slice(0, 14), 120, y + 60);
+    ctx.font = "22px 'Microsoft YaHei','PingFang SC',sans-serif";
+    ctx.fillStyle = "#6b7280";
+    ctx.fillText(`${d.region || ""} · ${d.budget_cny || ""}${d.visa_note ? " · " + d.visa_note : ""}`.slice(0, 40), 120, y + 98);
+    ctx.fillStyle = "#374151";
+    ctx.font = "23px 'Microsoft YaHei','PingFang SC',sans-serif";
+    wrapText(ctx, d.reason || "", W - 200).slice(0, 2).forEach((line, li) => {
+      ctx.fillText(line, 120, y + 136 + li * 34);
+    });
+    y += 230;
+  });
+  ctx.fillStyle = "#9ca3af";
+  ctx.font = "20px 'Microsoft YaHei','PingFang SC',sans-serif";
+  ctx.fillText("旅行目的地推荐助手 · 1001 个目的地 · 信息仅供参考", 24, H - 50);
+  return cvs;
+}
+
+function downloadShareImage(){
+  const cvs = buildShareCanvas();
+  const a = document.createElement("a");
+  a.href = cvs.toDataURL("image/png");
+  a.download = "我的旅行推荐.png";
+  document.body.appendChild(a); a.click();
+  setTimeout(() => a.remove(), 3000);
 }
 
 /* ================= 工具 ================= */
@@ -137,18 +1266,27 @@ function scoreDestination(d, p){
 function recommend(p, topN, exclude, weekend, province){
   topN = topN || 6; exclude = exclude || new Set();
   const scope = p.scope || "国内";
+  const intent = p.intent || null;
   const scored = [];
   for(const d of DESTINATIONS){
     if(exclude.has(d.name)) continue;
-    if(scope === "国内" || scope === "国外"){ if(d.country !== scope) continue; }
+    if(intent){
+      // 识别出明确目的地时，只保留匹配该意图的条目
+      if(!intentMatches(d, intent)) continue;
+    }else if(scope === "国内" || scope === "国外"){
+      if(d.country !== scope) continue;
+    }
     if(weekend){
       const dd = daysRange(d.days);
       if(dd[0] > 2) continue;
       if(province){
-        const allowed = weekendRegions(province);
         const city = (p.city || "").trim();
-        if(city) allowed.add(city);
-        if(!allowed.has(d.region)) continue;
+        const same = d.region === province || (city && d.region === city);
+        if(!same){
+          // 周末 3 小时交通圈 ≈ 450 公里内（估算值）
+          const est = travelEstimate(city || province, d);
+          if(!est || est.km > WEEKEND_MAX_KM) continue;
+        }
       }
     }
     let s = scoreDestination(d, p);
@@ -158,7 +1296,7 @@ function recommend(p, topN, exclude, weekend, province){
   scored.sort((a,b) => b[0] - a[0]);
   const out = [], rc = {};
   for(const [s, d] of scored){
-    if((rc[d.region] || 0) >= 2) continue;
+    if(!intent && (rc[d.region] || 0) >= 2) continue;
     rc[d.region] = (rc[d.region] || 0) + 1;
     out.push({score: Math.round(s*10)/10, dest: d});
     if(out.length >= topN) break;
@@ -202,6 +1340,7 @@ function buildProfile(answers){
   p.activities = (answers.activities || []).map(a => ACTIVITY_MAP[a] || a);
   p.climate = CLIMATE_MAP[answers.climate] || "";
   p.extra = (answers.extra || "").trim();
+  p.intent = detectIntent(p.extra);
   if(p.scene === "🚗 周末就近游(1-2天,从所在城市出发)"){ p.scope = "国内"; p.days = "1-3"; }
   return p;
 }
@@ -789,26 +1928,45 @@ function buildSummary(p, rich, discovery, live, weekend){
 }
 
 /* ================= UI 状态 ================= */
-const S = { answers:{}, idx:0, mode:"wizard", err:"", status:"", profile:null, shown:[], batchNo:0, summary:"", guide:"", richCount:0 };
+const S = { answers:{}, idx:0, mode:"wizard", err:"", status:"", profile:null, shown:[], batchNo:0, summary:"", guide:"", richCount:0, query:"", shareItems:[], compare:[], itinDays:null, itinName:"" };
 
 function hdr(){
   const total = curSteps().length;
   const pct = S.mode === "wizard" ? Math.round((S.idx+1)/total*100) : 100;
   const stepTxt = S.mode === "wizard" ? `${S.idx+1} / ${total}` : (S.batchNo ? `第 ${S.batchNo} 批 · 已看 ${S.shown.length} 个` : "");
+  const favN = loadSet(LS_FAV).size, doneN = loadSet(LS_DONE).size;
+  const counts = (favN || doneN) ? `<span class="hdr-counts">⭐${favN} · ✓${doneN}</span>` : "";
   return `<header class="app">
-    <h1>🧳 旅行目的地推荐助手</h1>
-    <div class="sub">${S.mode==="wizard" ? "回答几个小问题，为你全网精选目的地（含周边周末游）" : S.mode==="busy" ? "正在生成，请稍候…" : S.mode==="nomore" ? "换一批到头啦" : "推荐结果"}</div>
+    <h1>🧳 旅行目的地推荐助手 ${counts}</h1>
+    <div class="sub">${S.mode==="wizard" ? "回答几个小问题，为你全网精选目的地（含周边周末游）" : S.mode==="busy" ? "正在生成，请稍候…" : S.mode==="nomore" ? "换一批到头啦" : S.mode==="search" ? "搜索 1001 个目的地" : "推荐结果"}</div>
     <div class="bar"><i style="width:${pct}%"></i></div>
     <div class="steps">${stepTxt}</div>
+    <div class="hdr-search">
+      <input id="hdr-search-input" class="hdr-input" placeholder="🔍 搜索目的地（日本 / 海岛 / 古镇 / 温泉…）" value="${esc(S.query||"")}">
+    </div>
   </header>`;
 }
 
 function render(){
   const app = document.getElementById("app");
-  if(S.mode === "wizard"){ app.innerHTML = hdr() + stepBody() + navBody(); bindStep(); }
+  if(S.mode === "wizard"){ app.innerHTML = hdr() + stepBody() + navBody() + '<div id="modal"></div>'; bindStep(); }
   else if(S.mode === "busy"){ app.innerHTML = hdr() + `<div class="card"><div class="status" id="status">⏳ ${esc(S.status)}</div></div>`; }
-  else if(S.mode === "nomore"){ app.innerHTML = hdr() + nomoreBody(); bindNomore(); }
-  else if(S.mode === "result"){ app.innerHTML = hdr() + resultBody(); bindResult(); }
+  else if(S.mode === "nomore"){ app.innerHTML = hdr() + nomoreBody() + '<div id="modal"></div>'; bindNomore(); }
+  else if(S.mode === "result"){ app.innerHTML = hdr() + resultBody() + '<div id="modal"></div>'; bindResult(); }
+  else if(S.mode === "search"){ app.innerHTML = hdr() + searchBody() + '<div id="modal"></div>'; bindSearch(); }
+  bindHeaderSearch();
+}
+
+function bindHeaderSearch(){
+  const input = document.getElementById("hdr-search-input");
+  if(!input) return;
+  input.onkeydown = (e) => {
+    if(e.key === "Enter"){
+      S.query = input.value;
+      S.mode = "search";
+      render();
+    }
+  };
 }
 
 function curSteps(){ return activeSteps(S.answers); }
@@ -914,7 +2072,9 @@ async function runGeneration(){
   S.mode = "busy"; S.status = "正在根据你的偏好匹配目的地…"; render();
   const weekend = !!S.profile.city;
   const province = weekend ? provinceOf(S.profile.city) : "";
-  const top = recommend(S.profile, 6, new Set(S.shown), weekend, province);
+  // 已去过的不再推荐
+  const doneSet = loadSet(LS_DONE);
+  const top = recommend(S.profile, 6, new Set([...S.shown, ...doneSet]), weekend, province);
   if(!top.length){
     S.mode = "nomore"; render(); return;
   }
@@ -965,6 +2125,7 @@ async function runGeneration(){
     S.summary = buildSummary(S.profile, rich, discovery, live, weekend);
     S.guide = buildGuide(S.profile, rich, discovery, live, weekend);
     S.richCount = rich.length;
+    S.shareItems = rich.slice();
     S.shown.push(...rich.map(r => r.dest.name), ...live.map(x => x.name));
     S.mode = "result"; render();
   } catch(e){
@@ -995,18 +2156,35 @@ function bindNomore(){
 function resultBody(){
   const labels = profileLabels(S.profile);
   const chips = labels.map(([k,v]) => `<span class="chip"><b>${esc(k)}</b>${esc(v)}</span>`).join("");
-  const list = (S.summary || "").split("\n").filter(l => /^\d+\.\s/.test(l)).map(l => {
-    const m = l.match(/^(\d+)\.\s(.+?)（(.+?) · 匹配度 ([\d.]+) 分 · 参考 (.+?)(?: · (.+))?）$/);
-    if(!m) return `<div class="rank-item">${esc(l)}</div>`;
-    return `<div class="rank-item"><b>${m[1]}. ${esc(m[2])}</b>
-      <div class="meta">${esc(m[3])} · 匹配度 ${m[4]} 分 · ${esc(m[5])}${m[6]?" · 🛂 "+esc(m[6]):""}</div></div>`;
-  }).join("");
   const why = (S.summary || "").split("\n").filter(l => /^\s+理由：/.test(l));
-  const fullList = (S.summary || "").split("\n").filter(l => /^\d+\.\s/.test(l)).map((l,i) =>
-    `<div class="rank-item"><b>${esc(l)}</b>
-     ${why[i] ? `<div class="why"><b>💡</b> ${esc(why[i].replace(/^\s+理由：/,""))}</div>` : ""}</div>`).join("");
+  const names = (S.summary || "").split("\n").filter(l => /^\d+\.\s/.test(l));
+  const fullList = names.map((l, i) => {
+    const m = l.match(/^(\d+)\.\s(.+?)（(.+?) · 匹配度 ([\d.]+) 分 · 参考 (.+?)(?: · (.+))?）$/);
+    const name = m ? m[2] : "";
+    const d = name ? DESTINATIONS.find(x => x.name === name) : null;
+    const days = d ? (daysRange(d.days)[0] || 2) : 2;
+    const cost = d ? estimateCost(d, days) : null;
+    return `<div class="rank-item">
+      <div class="rank-line"><b>${esc(l)}</b></div>
+      ${why[i] ? `<div class="why"><b>💡</b> ${esc(why[i].replace(/^\s+理由：/,""))}</div>` : ""}
+      ${d ? `<div class="rank-meta-line">
+        <span class="mini-cost">💰 约 ¥${cost.total.toLocaleString("zh-CN")}（${days}天/人）</span>
+        ${monthStripHtml(d, true)}
+      </div>` : ""}
+      ${d && S.profile && S.profile.city ? `<div class="travel-line">🚏 ${esc(travelBrief(S.profile.city, d))}</div>` : ""}
+      <div class="rank-actions">
+        ${name ? `<button class="mini" data-itin="${esc(name)}">🗺️ 详细行程</button>
+        <button class="mini" data-fav="${esc(name)}">${isFav(name) ? "★ 已收藏" : "⭐ 收藏"}</button>
+        <button class="mini" data-done="${esc(name)}">${isDone(name) ? "✓ 去过" : "✓ 标记去过"}</button>
+        <label class="mini cmp-label"><input type="checkbox" data-cmp="${esc(name)}" ${S.compare.includes(name) ? "checked" : ""}> 对比</label>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+  const intent = (S.profile && S.profile.intent) ? S.profile.intent : null;
+  const intentBadge = intent ? `<div class="intent-tip">🎯 已按你的要求锁定：<b>${esc(intent.label)}</b>（备注里提到的目的地优先）</div>` : "";
   return `<div class="card">
     <div class="q-title">✅ 推荐已生成（第 ${S.batchNo} 批 · ${S.richCount} 个目的地）</div>
+    ${intentBadge}
     <div class="chips">${chips}</div>
     ${fullList}
     <div class="nav">
@@ -1014,7 +2192,22 @@ function resultBody(){
       <button class="btn2" id="restart">重新填写</button>
       <button class="btn1" id="download">⬇️ 下载攻略</button>
     </div>
-    <div class="note">攻略已按你的画像生成（含配图与全网参考），可直接转发给同行伙伴。</div>
+    <div class="nav" style="margin-top:8px">
+      <button class="btn2" id="share-img" style="flex:1">📸 生成分享长图</button>
+      <button class="btn2" id="open-search" style="flex:1">🔍 搜索其他目的地</button>
+    </div>
+    <div class="nav" style="margin-top:8px">
+      <button class="btn2" id="budget-rev" style="flex:1">💡 预算反推</button>
+      <button class="btn2" id="fest-cal" style="flex:1">🎉 节庆日历</button>
+      <button class="btn2" id="travel-card" style="flex:1">🌍 出国速查</button>
+    </div>
+    <div class="cmp-bar" id="cmp-bar" style="display:${S.compare.length ? "flex" : "none"}">
+      <span id="cmp-count">已选 ${S.compare.length} 个</span>
+      <button class="btn2" id="cmp-open" ${S.compare.length < 2 ? "disabled" : ""}>⚖️ 对比</button>
+      <button class="btn2" id="route-open" ${S.compare.length < 2 ? "disabled" : ""}>🧭 环线规划</button>
+      <button class="btn2" id="cmp-clear">清空</button>
+    </div>
+    <div class="note">点每个目的地右侧的「🗺️ 详细行程」，可生成按天安排的美食 + 景点 + 交通计划；「⭐ 收藏」「✓ 标记去过」会记在本机，之后不再重复推荐去过的。</div>
   </div>
   <div class="guide">
     <div class="g-head"><h2>🧳 你的专属旅行目的地推荐</h2></div>
@@ -1035,6 +2228,74 @@ function bindResult(){
   if(swap) swap.onclick = nextBatch;
   if(restartBtn) restartBtn.onclick = restart;
   if(dl) dl.onclick = () => downloadGuide();
+  const share = document.getElementById("share-img");
+  if(share) share.onclick = () => downloadShareImage();
+  const openSearch = document.getElementById("open-search");
+  if(openSearch) openSearch.onclick = () => { S.mode = "search"; S.query = ""; render(); };
+  document.querySelectorAll("[data-itin]").forEach(b => b.onclick = () => showItinerary(b.getAttribute("data-itin")));
+  document.querySelectorAll("[data-fav]").forEach(b => b.onclick = () => { toggleFav(b.getAttribute("data-fav")); render(); });
+  document.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { toggleDone(b.getAttribute("data-done")); render(); });
+  document.querySelectorAll("[data-cmp]").forEach(cb => cb.onchange = () => { toggleCompare(cb.getAttribute("data-cmp")); render(); });
+  const cmpOpen = document.getElementById("cmp-open");
+  if(cmpOpen) cmpOpen.onclick = () => { if(S.compare.length >= 2) showCompare(S.compare); };
+  const routeOpen = document.getElementById("route-open");
+  if(routeOpen) routeOpen.onclick = () => { if(S.compare.length >= 2) showRoute(S.compare); };
+  const cmpClear = document.getElementById("cmp-clear");
+  if(cmpClear) cmpClear.onclick = () => { S.compare = []; render(); };
+  const bRev = document.getElementById("budget-rev");
+  if(bRev) bRev.onclick = () => showBudgetReverse();
+  const festCal = document.getElementById("fest-cal");
+  if(festCal) festCal.onclick = () => showFestivalCalendar();
+  const tc = document.getElementById("travel-card");
+  if(tc) tc.onclick = () => showTravelCard();
+}
+
+/* ================= 搜索模式 ================= */
+function searchBody(){
+  const q = S.query || "";
+  const results = searchDestinations(q, 30);
+  const favs = loadSet(LS_FAV), dones = loadSet(LS_DONE);
+  const rows = results.map(d => `
+    <div class="search-row">
+      <div class="search-main">
+        <div class="search-name">${esc(d.name)} ${favDoneBadges(d.name)}</div>
+        <div class="search-meta">${esc(d.region)} · ${esc(d.budget_cny || "")}${d.visa_note ? " · 🛂 " + esc(d.visa_note) : ""} · ${esc(d.days)} 天 · 💰 约 ¥${estimateCost(d, daysRange(d.days)[0] || 2).total.toLocaleString("zh-CN")}/人</div>
+        <div class="search-why">${esc(d.reason || "")}</div>
+        ${monthStripHtml(d, true)}
+      </div>
+      <div class="search-actions">
+        <button class="mini" data-itin="${esc(d.name)}">🗺️ 行程</button>
+        <button class="mini" data-fav="${esc(d.name)}">${favs.has(d.name) ? "★ 已收藏" : "⭐ 收藏"}</button>
+        <button class="mini" data-done="${esc(d.name)}">${dones.has(d.name) ? "✓ 去过" : "✓ 标记"}</button>
+      </div>
+    </div>`).join("");
+  const empty = q ? `<div class="note">没有找到匹配「${esc(q)}」的目的地，换个关键词试试（如：日本、海岛、古镇、温泉、秋色）</div>`
+                  : `<div class="note">输入关键词搜索 1001 个目的地：可以搜地名（大理）、国家（日本）、类型（海岛/古镇/温泉）、特色（秋色/美食）</div>`;
+  return `<div class="card">
+    <div class="q-title">🔍 搜索目的地</div>
+    <input class="text" id="search-input" value="${esc(q)}" placeholder="例如：日本 / 海岛 / 古镇 / 温泉 / 秋色">
+    <div class="search-summary">${q ? `找到 <b>${results.length}</b> 个相关目的地` : ""}</div>
+    <div class="search-list">${rows || empty}</div>
+    <div class="nav">
+      <button class="btn2" id="search-back">← 返回</button>
+    </div>
+  </div>`;
+}
+
+function bindSearch(){
+  const input = document.getElementById("search-input");
+  if(input){
+    input.oninput = () => { S.query = input.value; clearTimeout(S._searchTimer); S._searchTimer = setTimeout(() => {
+      S.mode = "search"; render();
+      const el = document.getElementById("search-input");
+      if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    }, 220); };
+  }
+  const back = document.getElementById("search-back");
+  if(back) back.onclick = () => { S.mode = S.profile ? "result" : "wizard"; render(); };
+  document.querySelectorAll("[data-itin]").forEach(b => b.onclick = () => showItinerary(b.getAttribute("data-itin")));
+  document.querySelectorAll("[data-fav]").forEach(b => b.onclick = () => { toggleFav(b.getAttribute("data-fav")); render(); });
+  document.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { toggleDone(b.getAttribute("data-done")); render(); });
 }
 
 function downloadGuide(){
@@ -1093,6 +2354,61 @@ function runSelfTest(){
   const jl = recommend({preference:["自然景观"],scope:"国内",days:"1-3",budget_tier:"低",season:"秋",style:"享受型",transport:"自驾",city:"吉林"}, 8, new Set(), true, "吉林");
   lines.push("WEEKEND_PROVINCE_OK=" + jl.every(x => ["吉林","辽宁","黑龙江","内蒙古"].includes(x.dest.region)));
   lines.push("WEEKEND_JL_TOP=" + jl.slice(0,3).map(x=>x.dest.name).join("|"));
+  // 需求理解
+  const i1 = detectIntent("我想去日本玩，预算一万");
+  lines.push("INTENT_JP=" + (!!i1 && i1.region === "日本"));
+  const i2 = detectIntent("想去欧洲看极光");
+  lines.push("INTENT_EU=" + (!!i2 && i2.region === "欧洲"));
+  const i3 = detectIntent("云南");
+  lines.push("INTENT_YN=" + (!!i3 && i3.region === "云南" && i3.country === "国内"));
+  lines.push("INTENT_NONE=" + (detectIntent("") === null));
+  const pj = {preference:["自然景观"],scope:"国外",budget_tier:"中高",season:"秋",transport:"公共交通",style:"享受型",days:"5-7",extra:"我想去日本"};
+  pj.intent = detectIntent(pj.extra);
+  const rj = recommend(pj, 6);
+  lines.push("INTENT_REC_ALL_JP=" + (rj.length > 0 && rj.every(x => x.dest.region === "日本")));
+  // 行程
+  const it = buildItinerary(DESTINATIONS.find(x => x.name === "日本·京都") || DESTINATIONS[0]);
+  lines.push("ITIN_DAYS=" + it.days + " OK=" + (it.plan.length === it.days && it.days >= 2));
+  // 搜索
+  const s1 = searchDestinations("日本", 5);
+  lines.push("SEARCH_JP=" + (s1.length > 0 && s1.every(d => d.region === "日本" || (d.name || "").includes("日本"))));
+  const s2 = searchDestinations("温泉", 5);
+  lines.push("SEARCH_HOTSPRING=" + (s2.length > 0));
+  // 收藏工具（无 localStorage 环境也不能报错）
+  let favOk = true;
+  try { toggleFav("测试"); toggleDone("测试"); } catch(e) { favOk = false; }
+  lines.push("FAV_TOGGLE_OK=" + favOk);
+  // 花费估算 / 住宿区域 / 最佳月份 / 对比
+  const dc = DESTINATIONS.find(x => x.name === "日本·京都") || DESTINATIONS[0];
+  const c3 = estimateCost(dc, 3), c5 = estimateCost(dc, 5);
+  lines.push("COST_SCALE=" + (c5.total > c3.total && c3.total > 0 && c3.perDay > 0));
+  const sa = stayAreas(dc);
+  lines.push("STAY_OK=" + (sa.areas.length > 0 && !!sa.band));
+  const mr = monthRatings(dc);
+  lines.push("MONTH_OK=" + (mr.length === 12 && Math.max.apply(null, mr) === 3 && Math.min.apply(null, mr) >= 1));
+  const cmp = compareHtml(["日本·京都", "日本·奈良"]);
+  lines.push("COMPARE_OK=" + (cmp.indexOf("京都") >= 0 && cmp.indexOf("奈良") >= 0 && cmp.indexOf("花费估算") >= 0));
+  // 环线 / 时刻表 / 相似 / 预算反推 / 节庆
+  const dt = DESTINATIONS.find(x => x.name === "日本·京都") || DESTINATIONS[0];
+  const rt = planRoute(["日本·京都", "日本·奈良", "日本·神户"]);
+  lines.push("ROUTE_OK=" + (!!rt && rt.ordered.length === 3 && rt.legs.length === 2 && rt.totalDays > 0));
+  const it2 = buildItinerary(dt);
+  lines.push("TIMETABLE_OK=" + (it2.plan.every(p => p.schedule && p.schedule.length >= 6)));
+  const sim = similarTo("日本·京都", 3);
+  lines.push("SIMILAR_OK=" + (sim.length === 3 && sim.every(x => x.d.name !== "日本·京都")));
+  const br = budgetReverse(8000, "国内");
+  lines.push("BUDGET_REV_OK=" + (br.length > 0 && br.every(x => x.days >= 2)));
+  lines.push("FEST_OK=" + (FESTIVALS.length > 10 && festivalsFor(dt).length >= 1));
+  // 打包清单 / 出国速查
+  const pk = packingList(dt, {companion: "家庭(带小孩)"});
+  lines.push("PACKING_OK=" + (pk.length > PACKING_BASE.length && pk.some(x => x.indexOf("儿童") >= 0)));
+  const tt = travelTipsFor(dt);
+  lines.push("TRAVEL_CARD_OK=" + (!!tt && tt.data[0].indexOf("JPY") >= 0));
+  // 交通估算 / 周末距离筛选
+  const te = travelEstimate("合肥", DESTINATIONS.find(x => x.name === "安徽·宣城绩溪") || dt);
+  lines.push("TRAVEL_OK=" + (!!te && te.km > 80 && te.trainH > 0 && te.toll > 0));
+  const wf = recommend({preference:["自然景观"],budget_tier:"低",companion:"朋友",season:"秋",transport:"自驾",scope:"国内",style:"享受型",days:"1-3",city:"合肥"}, 8, new Set(), true, "安徽");
+  lines.push("WEEKEND_KM_OK=" + (wf.length > 0 && wf.every(x => x.dest.region === "安徽" || ((travelEstimate("合肥", x.dest) || {km: 99999}).km <= WEEKEND_MAX_KM))));
   return lines.join("\n");
 }
 
